@@ -1,0 +1,83 @@
+body,html {
+    margin: 0;
+    padding: 0;
+    background-image: url("../sky.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%; width: 100%;
+}
+* {
+    box-sizing: border-box;
+}
+
+#page {
+  display: flexbox;
+  height: 100vh;
+  grid-template-areas: "header header"
+                       "main  main";
+  grid-template-rows: 50px 1fr 30px;
+  grid-template-columns: 150px 1fr;
+}
+
+main {
+    padding-top: 50px;
+    padding-left: 75px;
+}
+
+#header {
+    padding-top: 5px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    height: 50px;
+    /* border-bottom: 0.3px solid #d3d3d3; */
+    overflow: auto;
+    /* background-color: #1b1b1b; */
+}
+
+#logo {
+    color: #08a3d9;
+    float: left;
+}
+
+#header-middle {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#header-right {
+    float: right;
+    margin-right: 20px;
+    text-align: center;
+}
+
+/* h1 {
+    color: rgb(42, 41, 71);
+    text-align: center;
+} */
+
+.button {
+    /* background-color: #ffffff; */
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: 1.7px solid #000000;
+    color: rgb(0, 0, 0);
+    padding: 7px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 0px 0px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.corners {
+    border-radius: 4px;
+}
+
+.button:hover {
+    background-color: #4c6585; 
+    color: white;
+}

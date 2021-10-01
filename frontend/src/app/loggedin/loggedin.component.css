@@ -1,0 +1,121 @@
+body,html {
+    margin: 0;
+    padding: 0;
+    background-image: url("../sky.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: auto;
+    /* background-attachment: fixed; */
+    height: 100%; width: 100%;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 16px;
+}
+* {
+    box-sizing: border-box;
+}
+
+#page {
+  display: flexbox;
+  height: 100vh;
+  grid-template-areas: "header header"
+                       "main  main";
+  grid-template-rows: 50px 1fr 30px;
+  grid-template-columns: 150px 1fr;
+}
+
+#header {
+    padding-top: 5px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    height: 55px;
+    /* border-bottom: 0.3px solid black; */
+    /* overflow: auto;*/
+    background-color: white;  
+    overflow: hidden;
+    font-family: 'Libre Baskerville', serif;
+    /* background-color: #333; */
+}
+
+main {
+    background-color: white; 
+}
+
+#logo {
+    color: #08a3d9;
+    float: left;
+}
+
+#header-middle {
+    float: right;
+    width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#header-right {
+    float: right;
+    margin-right: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: rgb(42, 41, 71);
+    text-align: center;
+}
+
+.button {
+    /* background-color: #ffffff; */
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: 1px solid rgba(0, 0, 0,0.65);
+    color: rgb(0, 0, 0);
+    padding: 7px 26px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 0px 0px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    box-shadow: 0 3px rgba(0, 0, 0,0.4);
+    font-family: 'Libre Baskerville', serif;
+}
+
+.button:active {
+    background-color: #4c6585;
+    box-shadow: 0 3px rgba(145, 144, 144, 0.6); 
+    transform: translateY(6px);
+}
+
+.corners {
+  border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #4c6585; 
+    color: white;
+}
+
+.dropdown {
+    position: relative;
+    display: auto;
+}
+
+.dropdown-content {
+    display: none;
+    position: relative;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.desc {
+    padding: 15px;
+    text-align: center;
+}

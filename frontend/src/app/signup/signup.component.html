@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="signup.component.css">
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Poppins&display=swap" rel="stylesheet">
+        <title>LinkedIn</title>
+        <style>
+            input.logo {
+              border-radius: 10%;
+            }
+        </style>
+    </head>
+    <router-outlet></router-outlet> 
+    <body>
+        <div id="page">
+            <div id="header">
+                <div id="logo">
+                    <!-- <br> -->
+                    <!-- &nbsp; -->
+                    <form method="get" action="app/welcome" style="display: inline;">
+                        <input type="image" src="../assets/turtle.png" width="120" height="46"/>
+                    </form>                
+                </div>
+            </div>            
+            <!-- <router-outlet></router-outlet>   -->
+        <main>
+            <h3>Δημιουργία νέου λογαριασμού</h3>
+            <!-- <form method="get" action="app/loggedin/start" style="display: inline;"> -->
+            <form [formGroup]="signupForm" (ngSubmit)="onSignup()" style="display: inline;">
+                <!-- <fieldset> -->
+                    <label for="First Name"> </label> <input formControlName="name" id="firstname" type="text" name="firstname" placeholder="Όνομα" size="27"/>
+                    <div *ngIf="submitted && formControl.name.errors" class="text-danger">
+                        <div *ngIf="formControl.email.errors.required"><small style="color:red">First Name is required.</small></div>
+                    </div>
+                <!-- </fieldset>
+                <fieldset> -->
+                    <label for="Last Name"> </label> <input formControlName="surname" id="lastname" type="text" name="lastname" placeholder="Επώνυμο" size="27"/>
+                    <div *ngIf="submitted && formControl.surname.errors" class="text-danger">
+                        <div *ngIf="formControl.email.errors.required"><small style="color:red">Last Name is required.</small></div>
+                    </div>
+                    <!-- </fieldset>
+                <fieldset> -->
+                    <label for="Εmail"> </label> <input formControlName="email" id="email" type="text" name="email" placeholder="Διεύθυνση ηλεκτρονικού ταχυδρομείου" size="27"/>
+                    <div *ngIf="submitted && formControl.email.errors" class="text-danger">
+                        <div *ngIf="formControl.email.errors.email"><small style="color:red">Email must be valid.</small></div>
+                        <div *ngIf="formControl.email.errors.required"><small style="color:red">Email is required.</small></div>
+                    </div>
+                <!-- </fieldset>
+                <fieldset> -->
+                    <label for="Telephone"> </label> <input formControlName="telephone" id="telephone" type="text" name="telephone" placeholder="Τηλέφωνο επικοινωνίας" size="27"/>
+                    <div *ngIf="submitted && formControl.telephone.errors" class="text-danger">
+                        <div *ngIf="formControl.telephone.errors.required"><small style="color:red">Telephone is required.</small></div>
+                    </div>
+                    <!-- </fieldset>
+                <fieldset> -->
+                    <label for="Education"> </label> <input formControlName="education" id="education" type="text" name="education" placeholder="Τίτλος Σπουδών" size="27"/>
+                    <label for="Age"> </label> <input formControlName="age" id="education" type="text" name="age" placeholder="Ηλικία" size="27"/>
+
+                    <!-- </fieldset>
+                <fieldset> -->
+                    <label for="Job Description"> </label> <input formControlName="job_description" id="job" type="text" name="job" placeholder="Επάγγελμα" size="27"/>
+                <!-- </fieldset>
+                <fieldset> -->
+                    <label for="Password"> </label> <input formControlName="password1" id="password" type="password" name="password" placeholder="Κωδικός" size="27"/>
+                    <div *ngIf="submitted && formControl.password1.errors" class="text-danger">
+                        <div *ngIf="formControl.password1.errors.required"><small style="color:red">Password is required.</small></div>
+                        <div *ngIf="formControl.password.errors.pattern">
+                            <!-- <h3>Password must contain the following:</h3> -->
+                            <!-- <ul>
+                                <li>Password should be alphanumeric</li>
+                                <li>A letter of the password should be capital</li>
+                                <li>Password must contain a special character (@, $, !, &, etc)</li>
+                                <li>Password length must be greater than 7 characters</li>
+                            </ul> -->
+                        </div>
+                    </div>
+                    <!-- </fieldset>
+                <fieldset> -->
+                    <label for="Password Verification"> </label> <input formControlName="password2" id="password" type="password" name="password" placeholder="Επιβεβαίωση Κωδικού" size="27"/>
+                    <div *ngIf="submitted && formControl.password2.errors" class="text-danger">
+                        <div *ngIf="formControl.password2.errors.required"><small style="color:red">Password verification is required.</small></div>
+                        <div *ngIf="formControl.password.errors.pattern">
+                            <!-- <h3>Password must contain the following:</h3> -->
+                            <!-- <ul>
+                                <li>Password should be alphanumeric</li>
+                                <li>A letter of the password should be capital</li>
+                                <li>Password must contain a special character (@, $, !, &, etc)</li>
+                                <li>Password length must be greater than 7 characters</li>
+                            </ul> -->
+                        </div>
+                    </div>
+                    <!-- </fieldset>
+                <fieldset> -->
+                <!-- </fieldset> -->
+
+                    <br>
+                    <!-- <label for="img">Επιλέξτε φωτογραφία προφίλ: </label>
+                    <input type="file" id="img" name="img" accept="image/*"> -->
+                    <div class="postdiv">
+                        
+                        <div class="image-upload">
+                            <label for="file-input">Επιλέξτε φωτογραφία προφίλ: 
+                              <img class="upload" src="../../assets/photo.png" width="53" height="48"/>
+                            </label>
+                            <!-- <input #image formControlName="user_Image" type="file-input" accept="image/*" (change)="onFileChanged(image)"> -->
+                            <input id="file-input" type="file" title="Upload photo" (change)="onFileChanged($event)">
+                        </div>
+                        <!-- <input class="upload" img="../../assets/photo.png" type="file" id="img" name="img" accept="image/*" title="Upload photo"/>
+                        &nbsp;<input class="upload" type="image" src="../../assets/video.png" alt="Submit"  width="53" height="48" id="img" name="img" accept="video/*" title="Upload video"/>
+                        &nbsp;<input class="upload" type="image" src="../../assets/sound.png" alt="Submit"  width="48" height="48"  id="img" name="img" accept="audio/*" title="Upload soundclip"/> -->
+                </div>
+                <!-- </fieldset>
+                <fieldset> -->
+                    <br><br><br><br>
+                <div class="postdiv1">
+                    <input class="upload1" type="submit" value="Sign Up"/>
+                </div>
+                <!-- </fieldset> -->
+            </form>            
+        </main>
+            <!-- <img src="./sky.jpg" alt="Cannot load image" width="500" height="270"> -->
+        </div>
+    </body>
+</html>
+
+
+
+
+
+

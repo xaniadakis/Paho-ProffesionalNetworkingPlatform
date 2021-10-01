@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="loggedin.component.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Poppins&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=PT+Sans&display=swap" rel="stylesheet">
+        <title>LinkedIn</title>
+        <style>
+            input.logo {
+              border-radius: 10%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="page">
+            <div id="header">
+                <div id="logo">
+                    <!-- <br> -->
+                    <!-- &nbsp; -->
+                    <form method="get" action="app/loggedin/start" style="display: inline;">
+                        <input type="image" src="../assets/turtle.png" width="120" height="46"/>
+                    </form>
+                </div>
+                <div id="header-right">
+                    <form [formGroup]="Form" (ngSubmit)="onLogout();" style="display: inline;">
+                    <!-- <form (submit)="onLogout();" style="display: inline;"> -->
+                        <button class="button corners" mat-raised-button color="primary" >Έξοδος</button>
+                    </form>
+                    <!-- <form (submit)="onLogout()" style="display: inline;">
+                        <input class="logo" type="image" src="../../assets/login-google-account-computer-icons-user-png-favpng-ZwgqcU6LVRjJucQ9udYpX00qa-removebg-preview.png" width="35" height="35" />
+                    </form>  -->
+                </div>
+                <div id="header-middle">
+                    <form method="get" action="app/loggedin/start" style="display: inline;">
+                        <button class="button corners" mat-raised-button color="primary" >Αρχική Σελίδα</button>&nbsp;
+                    </form>
+                    <form method="get" action="app/loggedin/network" style="display: inline;">
+                        <button class="button corners" mat-raised-button color="primary" >Δίκτυο</button>&nbsp;
+                    </form>
+                    <form method="get" action="app/loggedin/postings" style="display: inline;">
+                        <button class="button corners" mat-raised-button color="primary" >Αγγελίες</button>&nbsp;
+                    </form>
+                    <form method="get" action="app/loggedin/chat" style="display: inline;">
+                        <button class="button corners" mat-raised-button color="primary" >Συζητήσεις</button>&nbsp;
+                    </form>
+                    <form method="get" action="app/loggedin/notifications" style="display: inline;">
+                        <button class="button corners" mat-raised-button color="primary" >Ειδοποιήσεις</button>&nbsp;
+                    </form>
+                    <form method="get" action="app/loggedin/personal-info" style="display: inline;">
+                        <button class="button corners" mat-raised-button color="primary" >Προσωπικά Στοιχεία</button>&nbsp;
+                    </form>
+                    <form method="get" action="app/loggedin/settings" style="display: inline;">
+                        <button class="button corners" mat-raised-button color="primary" >Ρυθμίσεις</button>
+                    </form>
+                    <!-- <form method="get" action="app/loggedin/settings" style="display: inline;">
+                        <button class="button corners" mat-raised-button color="primary" >Ρυθμίσεις</button>
+                    </form> -->
+                </div>
+            </div> 
+            <router-outlet></router-outlet>
+            <main>
+            </main>    
+        </div>
+    </body>
+</html>

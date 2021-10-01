@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="settings.component.css">
+        <title>LinkedIn</title>
+        <style>
+            input.logo {
+              border-radius: 10%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="page">           
+            <main>
+                <br> <br><br><br><br>
+                <fieldset>
+                <!-- <label for="fname"><b>Τροποποίηση email:  </b> </label> -->
+                <form [formGroup]="newMail" (ngSubmit)="changeMail()" style="display: inline;">
+                    <div id="bar">
+                        <input type="text" id="fname" name="email" formControlName="email" placeholder="Αλλαγή διεύθυνσης ηλεκτρονικού ταχυδρομείου">
+                        <input class="upload1" type="submit" value="Αποθήκευση"/>
+                    </div>
+                </form>
+                <br>
+                <!-- <label for="lname"><b>Τροποποίηση κωδικού:           </b></label> -->
+                <form [formGroup]="newPassword" (ngSubmit)="changePassword()" style="display: inline;">
+                    <div id="bar">
+                        <input type="password" id="lname" name="password" formControlName="password" placeholder="Αλλαγή κωδικού πρόσβασης">
+                        <input class="upload1" type="submit" value="Αποθήκευση"/>
+                    </div>
+                </form>
+                </fieldset>
+                <br>
+                <!-- <img src="./sky.jpg" alt="Cannot load image" width="500" height="270"> -->            
+            </main>
+            
+        </div>
+    </body>
+</html>

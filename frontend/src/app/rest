@@ -1,0 +1,33 @@
+<div id="page">
+            <div id="header">
+                <div id="logo">
+                    <!-- <br> -->
+                    <!-- &nbsp; -->
+                    <form method="get" action="app" style="display: inline;">
+                        <input type="image" src="../assets/Vag_logo1mare1-1.png" width="180" height="40"/>
+                    </form>
+                </div>
+                <div id="header-right">
+                    <form method="get" action="app/signup" style="display: inline;">
+                        <button class="button corners" mat-raised-button color="primary">Εγγραφή</button>
+                    </form>   
+                    <!-- <a routerLink="/second-component" routerLinkActive="active"> Sign Up</a> -->
+                    &emsp;&emsp;&nbsp;&nbsp;
+                    <form method="get" action="app/start" style="display: inline;">
+                        <!-- <fieldset> -->
+                            <label class="corners" for="email"> </label> <input id="email" type="text" name="email" placeholder="email" size="20"/>
+                            <label class="corners" for="password"> </label> <input id="password" type="text" name="password" placeholder="κωδικός" size="20"/>
+                            <input class="button corners" type="submit" value="Είσοδος"/>
+                        <!-- </fieldset> -->
+                    </form>
+                    <!-- <router-outlet></router-outlet>      -->
+                </div>
+                <div id="header-middle">
+            
+                </div>
+            </div>  
+            <main>        
+                <h1></h1>
+            </main>
+            <!-- <img src="./sky.jpg" alt="Cannot load image" width="500" height="270"> -->
+        </div>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="chat.component.css">
+        <title>LinkedIn</title>
+        <style>
+            input.logo {
+              border-radius: 10%;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div class="sidenav column side">
+            <ul>
+              <div *ngFor="let friend of friends">
+                <li id="item">
+                  <ng-template [ngIf]="isNotBlack(friend.user_Image)">
+                    <img id="avatar" src="http://localhost:3000/{{friend.user_Image}}" alt="no image">
+                  </ng-template> 
+                  <!-- <input type="button" {{friend.name}} {{friend.surname}}> -->
+                  <button id="friendbutton" type="button" onclick="myFunction()">{{friend.name}} {{friend.surname}}</button>
+                  <ng-template [ngIf]="isActive(friend.is_active)">
+                    <span class="greendot"></span>
+                  </ng-template>
+                  <ng-template [ngIf]="notActive(friend.is_active)">
+                      <span class="reddot"></span>
+                  </ng-template></li>
+              </div>
+            </ul> 
+        </div>  
+        <div id="page">           
+            <main>
+
+            </main>
+            <br><br>
+                <!-- <router-outlet></router-outlet> -->
+                <div class="column middle">
+                                   
+                  <div id="footer">
+                  <div class="well" style="height:200px; padding:15px;">
+                      <div *ngFor="let message of messages">
+                        <ng-template [ngIf]="isMyUsername(message.userName)">
+                          <div class="container darker">
+                            <span><strong>{{message.userName}} : </strong> {{message.message}}</span>
+                            <!-- <span class="time-right">{{message.time}}</span> -->
+                          </div>
+                        </ng-template>
+                        <ng-template [ngIf]="notMyUsername(message.userName)">
+                          <div class="container lighter">
+                            <span><strong>{{message.userName}} : </strong> {{message.message}}</span>
+                            <!-- <span class="time-left">{{message.time}}</span> -->
+                          </div>
+                        </ng-template>
+                      </div>
+                  </div>
+                  <form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
+                    <input type="text" class="textbar" formControlName="text" placeholder="Στείλτε μήνυμα..." style="height:150px">
+                    <input class="mybutton" type="submit" value="Αποστολή" style="height: 160px;">
+                  </form>
+                  </div>
+                </div> 
+  
+            <!-- <img src="./sky.jpg" alt="Cannot load image" width="500" height="270"> -->
+        </div>
+    </body>
+</html>

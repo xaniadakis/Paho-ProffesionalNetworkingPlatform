@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="personal-info.component.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>LinkedIn</title>
+        <style>
+            input.logo {
+              border-radius: 10%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="page">           
+            <main> 
+                <div *ngIf="isDataAvailable;"> 
+                <div class="container">
+                <form [formGroup]="infoForm" (ngSubmit)="putPersonalInfo()">
+                    <div class="row" [formGroup]="infoForm">
+                        <div class="column" [formGroup]="infoForm">
+                            <h3> </h3>
+                            <label for="name"><i class="fa fa-user"></i> Όνομα</label>
+                            <input formControlName="name" type="text" id="name" name="name" placeholder="{{_name}}">
+                            <label for="surname"><i class="fa fa-user"></i> Επώνυμο</label>
+                            <input formControlName="surname" type="text" id="surname" name="surname" placeholder="{{_surname}}">
+                            <label for="country"><i class="fa fa-flag"></i> Χώρα</label>
+                            <input formControlName="country" type="text" id="country" name="country" placeholder="{{_country}}">
+                            <label for="city"><i class="fa fa-institution"></i> Πόλη</label>
+                            <input formControlName="city" type="text" id="city" name="city" placeholder="{{_city}}">
+                            <label for="adr"><i class="fa fa-address-card-o"></i> Διεύθυνση</label>
+                            <input formControlName="address" type="text" id="adr" name="address" placeholder="{{_address}}">
+                
+                            <div class="row" [formGroup]="infoForm">
+                            <div class="column" [formGroup]="infoForm">
+                                <label for="number">Αριθμός</label>
+                                <input formControlName="number" type="text" id="number" name="number" placeholder="{{_number}}">
+                            </div>
+                            <div class="column" [formGroup]="infoForm">
+                                <label for="zip">Ταχυδρομικός Κώδικας</label>
+                                <input formControlName="postcode" type="text" id="zip" name="zip" placeholder="{{_postcode}}">
+                            </div>
+                            </div>
+                        </div>
+            
+                        <div class="column" [formGroup]="infoForm">
+                            <h3></h3>
+                            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                            <input formControlName="email" type="text" id="email" name="email" placeholder="{{_email}}">
+                            <label for="github"><i class="fa fa-github"></i> GitHub</label>
+                            <input formControlName="github" type="text" id="github" name="github" placeholder="{{_github}}">
+                            <label for="facebook"><i class="fa fa-facebook"></i> Facebook</label>
+                            <input formControlName="facebook" type="text" id="facebook" name="facebook" placeholder="{{_facebook}}">
+                            <label for="twitter"><i class="fa fa-twitter"></i> Twitter</label>
+                            <input formControlName="twitter" type="text" id="twitter" name="twitter" placeholder="{{_twitter}}">
+                            <label for="instagram"><i class="fa fa-instagram"></i> Instagram</label>
+                            <input formControlName="instagram" type="text" id="instagram" name="instagram" placeholder="{{_instagram}}">
+
+                            <label for="youtube"><i class="fa fa-youtube"></i> Youtube</label>
+                            <input formControlName="youtube" type="text" id="youtube" name="youtube" placeholder="{{_youtube}}">
+                
+                        </div>
+                    </div>
+                    <label for="job_description"><i class="fa fa-briefcase"></i> Επάγγελμα</label>
+                    <input formControlName="job_description" type="text" id="job_description" name="job_description" placeholder="{{_job_description}}">
+                    <label for="education"><i class="fa fa-graduation-cap"></i> Εκπαίδευση</label>
+                    <input formControlName="education" type="text" id="education" name="education" placeholder="{{_education}}">
+                    <label for="skills"><i class="fa fa-coffee"></i> Δεξιότητες</label>
+                    <input formControlName="skills" type="text" id="skills" name="skills" placeholder="{{_skills}}">
+                    <br>                          
+                    <br>
+                    <input type="submit" value="Αποθήκευση αλλαγών" class="button">
+                </form>
+                </div>
+            </div>
+            </main>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="welcome.component.css">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=PT+Sans&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@200&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Poppins&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">        <title>LinkedIn</title>
+        <style>
+            input.logo {
+              border-radius: 10%;
+            }
+        </style>
+    </head>
+    <body>
+        <router-outlet></router-outlet>
+        <div id="page">
+            <div id="header">
+                <div id="logo">
+                    <!-- <br> -->
+                    <!-- &nbsp; -->
+                    <form method="get" action="app/welcome" style="display: inline;">
+                        <input type="image" src="../assets/turtle.png" width="120" height="46"/>
+                    </form>
+                </div>
+                <div id="header-right">
+                    <form method="get" action="app/signup" style="display: inline;">
+                        <button class="button corners" mat-raised-button color="primary">Εγγραφή</button>
+                    </form>   
+                    <!-- <a routerLink="/second-component" routerLinkActive="active"> Sign Up</a> -->
+                    &emsp;&emsp;&nbsp;&nbsp;
+                    <!-- <form [formGroup]="form" method="get" action="app/loggedin/start" style="display: inline;" (ngSubmit)="submitForm()"> -->
+                        <!-- <fieldset> -->
+                            <!-- <label class="corners" for="email"> </label> <input [formControlName]="'username'" class="field" id="email" type="text" name="email" placeholder="email" size="20"/>
+                            <label class="corners" for="password"> </label> <input [formControlName]="'password'" class="field" id="password" type="password" name="password" placeholder="κωδικός" size="20"/>
+                            <input type="checkbox" onclick="myFunction()">
+                            <input class="button corners" type="submit" value="Είσοδος"/> -->
+                        <!-- </fieldset> -->
+                    <!-- </form> -->
+                    <form class="user-login" [formGroup]="loginForm" (ngSubmit)="onLogin()" style="display: inline;">
+                        <label class="corners" for="email"></label><input class="field" id="email" type="email" formControlName="email" placeholder="διεύθυνση email" size="20">
+                        <div *ngIf="submitted && formControl.email.errors">
+                            <div *ngIf="formControl.email.errors.email"><small style="color:red">Email must be valid.</small></div>
+                            <div *ngIf="formControl.email.errors.required"><small style="color:red">Email is required.</small></div>
+                        </div>
+                        <label class="corners" for="password"></label><input class="field" id="password" type="password" formControlName="password" placeholder="κωδικός" size="20">
+                        <div *ngIf="submitted && formControl.password.errors">
+                            <div *ngIf="formControl.password.errors.required"><small style="color:red">Password is required.</small></div>
+                            <div *ngIf="formControl.password.errors.pattern">
+                                <!-- <h3>Password must contain the following:</h3> -->
+                                <!-- <ul>
+                                    <li>Password should be alphanumeric</li>
+                                    <li>A letter of the password should be capital</li>
+                                    <li>Password must contain a special character (@, $, !, &, etc)</li>
+                                    <li>Password length must be greater than 7 characters</li>
+                                </ul> -->
+                            </div>
+                        </div>
+                        <input class="button corners" type="submit" value="Είσοδος"/>
+                    </form>
+                    <!-- <router-outlet></router-outlet> -->
+                </div>
+                <div id="header-middle">
+                </div>
+            </div>  
+            <main>
+                <br><br><br><br>
+                <h1>Welcome to  <strong>Taco</strong>  !  </h1>
+                <br><br>
+                <h1><form method="get" action="app/welcome" style="float: center;">
+                    <input type="image" src="../assets/turtle1.png" width="300"/>
+                    <!-- <input type="image" src="../assets/Vag_logo1mare1-1.png" width="100" height="30"/> -->
+                </form> </h1>
+            </main>
+            <div id="footer">
+            <footer>
+                <form method="get" action="app/aboutus" style="display: inline;">
+                    <button class="upload1 corners" mat-raised-button color="primary">About Us</button>
+                </form>  
+            </footer>
+            </div>
+            <!-- <img src="./sky.jpg" alt="Cannot load image" width="500" height="270"> -->
+        </div>
+    </body>
+</html>

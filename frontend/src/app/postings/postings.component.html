@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="postings.component.css">
+        <title>LinkedIn</title>
+        <style>
+            input.logo {
+              border-radius: 10%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="page">            
+            <main>
+                <!-- <router-outlet></router-outlet> -->
+            </main>
+            <!-- <img src="./sky.jpg" alt="Cannot load image" width="500" height="270"> -->
+            <br><br>
+            <!-- <form action="/action_page.php">
+                <div class="postdiv">
+                    <img src="../../assets/login-google-account-computer-icons-user-png-favpng-ZwgqcU6LVRjJucQ9udYpX00qa-removebg-preview.png" width="43" height="43">
+                    &nbsp; <input type="text" placeholder="Γράψτε μια νέα αγγελία.." id="post"/>
+                </div>
+                <br>
+                <div class="postdiv">
+                    <input class="upload1" type="submit" value="Ανάρτηση">
+                </div>
+            </form>  -->
+            <form [formGroup]="postingForm" (ngSubmit)="newPosting()">
+                <div class="postdiv">
+                    <img id="avatar" src="http://localhost:3000/{{myImage}}" width="50" height="50">
+                    &nbsp; <input type="text" placeholder="Γράψτε μια νέα αγγελία.." id="post" formControlName="text"/>
+                </div>
+                <br>
+                <!-- <br> -->
+                <div class="postdiv">
+                    <input class="upload5" type="submit" value="Ανάρτηση">
+                </div>
+            </form> 
+        <div class="posts">
+            <div *ngIf="isDataAvailable; else notAvailable"> 
+                <!-- Data has arrived.
+                {{postings}} -->
+                <div *ngFor="let posting of postings">
+                    <div class="container darker">
+                        <img id="avatar" src="http://localhost:3000/{{posting._owner_name.user_Image}}" alt="Avatar" class="left"><p><b>{{posting._owner_name.name}} {{posting._owner_name.surname}}  
+                            <!-- <div *ngIf="isActive(post._owner_name.is_active); else notActive">
+                                <span class="greendot"></span>
+                            </div> -->
+                            <ng-template [ngIf]="isActive(posting._owner_name.is_active)">
+                                <span class="greendot"></span>
+                            </ng-template>
+                            <ng-template [ngIf]="notActive(posting._owner_name.is_active)">
+                                <span class="reddot"></span>
+                            </ng-template>
+                        </b></p>
+                        <span class="time-left">{{posting.date}}</span>
+                        <br>
+                        <!-- <div *ngIf="isNotBlack(posting.post_Image);"> 
+                            <div class="fill">
+                                <img id="post_Image" src="http://localhost:3000/{{posting.post_Image}}" alt="Cannot display image">
+                            </div>  
+                        </div>         -->
+                        <br>
+                        <td>{{posting.text}}</td>
+                        <br>
+                        <!-- <div id="row">
+
+                            <form [formGroup]="likeForm" (ngSubmit)="setId(posting._id); likePosting();">
+                                <input class="upload1 upload2 upload4" type="image" src="../../assets/like.png" width="35" height="27"/>
+                            </form>
+                            <p id="like">Αρέσει σε {{posting.likes}} χρήστες.</p>
+                        </div> -->
+                        <!-- <td>{{post.likes}}</td> -->
+                        <!-- <td>{{ setId(post._id) }} </td> -->
+                        <!-- <script>
+                            function setId(val){
+                                console.log(val);
+                            }
+                        </script> -->
+                        <form [formGroup]="commentForm" (ngSubmit)="setId(posting._id); newComment();">
+                            <!-- <input type="text" formControlName="postingId"  [value]="post._id" style="visibility: hidden; display:inline;"> -->
+                            <div class="postdiv" style="float:left">
+                                &nbsp; <input type="text" formControlName="text" placeholder="Γράψτε κάτι.." id="post1"/><input class="upload1 upload3" type="submit" value="Σχολιάστε">
+                            </div>
+                        </form>
+                        <br>
+                        <br>
+                        <div  *ngFor="let comment of posting.ncomments">
+                            <div id="commentrow">
+                                {{comment.commentator_name}} says: <p id="comment"> {{comment.text}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <ng-template #notAvailable>
+                Data hasn't arrived.
+            </ng-template>
+        </div>
+    </body>
+</html>

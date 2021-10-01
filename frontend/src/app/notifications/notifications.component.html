@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="notifications.component.css">
+        <title>LinkedIn</title>
+        <style>
+            input.logo {
+              border-radius: 10%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="page">          
+            <main>
+            </main>
+            <div *ngFor="let request of reqs;">
+                <div class="container darker" >
+                    <img id="avatar" src="http://localhost:3000/{{request._owner_name.user_Image}}" alt="Avatar" class="left" width="50" height="50"><p> O <b>{{request._owner_name.name}} {{request._owner_name.surname}}</b> σας έκανε αίτημα φιλίας.</p>
+                    <form [formGroup]="addForm" (ngSubmit)="setID(request._id); acceptRequest();" style="display: inline;">
+                        <input class="mybutton" type="submit" value="Aποδοχή">
+                    </form>
+                    <form [formGroup]="addForm" (ngSubmit)="setID(request._id); declineRequest();" style="display: inline;">
+                        <input class="mybutton" type="submit" value="Απόρριψη">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

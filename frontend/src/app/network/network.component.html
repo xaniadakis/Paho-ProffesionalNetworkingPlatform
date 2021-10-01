@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="network.component.css">
+        <title>LinkedIn</title>
+        <style>
+            input.logo {
+              border-radius: 10%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="page">       
+          <br><br>
+          <form action="/action_page.php" autocomplete="off">
+              <div class="postdiv">
+                <img id="avatar" src="http://localhost:3000/{{myImage}}" width="50" height="50">
+                &nbsp; <input type="text" placeholder="Ανάζήτηση.." id="post"/>
+              </div>
+              <br>
+              <div class="postdiv">
+                  <input class="upload1" type="submit" value="Ανάζήτηση">
+              </div>
+          </form> 
+          <!-- <form autocomplete="off" action="/action_page.php">
+            <div class="autocomplete" style="width:300px;">
+              <input id="myInput" type="text" name="myCountry" placeholder="Country">
+            </div>
+            <input type="submit">
+          </form> -->
+          <br>
+            <!-- <img src="../assets/search1.png" height=20 width=20 >
+            <input type="text" name="search" placeholder="Search..">  -->
+            <div class="row"> 
+            <div *ngFor="let friend of friends;  let i=index">
+              <div *ngIf="i<=4">
+                <div class="flip-card column">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <div *ngIf="isNotBlack(friend.user_Image);"> 
+                          <img class="imgb" src="http://localhost:3000/{{friend.user_Image}}" alt="Avatar" style="width:290px;height:290px;">
+                      </div> 
+                      <p>{{friend.name}} {{friend.surname}} 
+                        <ng-template [ngIf]="isActive(friend.is_active)">
+                          <span class="greendot"></span>
+                      </ng-template>
+                      <ng-template [ngIf]="notActive(friend.is_active)">
+                          <span class="reddot"></span>
+                      </ng-template>
+                      </p>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="container">
+                        <h2>{{friend.name}} {{friend.surname}}</h2>
+                        <p class="title">{{friend.job_description}}</p>
+                        <!-- <p>{{friend.}}</p> -->
+                        <p>{{friend.email}}</p>
+                        <form [formGroup]="addForm" (ngSubmit)="setID(friend._id); sendRequest();" >
+                          <!-- <input class="button imgbutton" type="submit" type="submit" value="Προσθήκη Φίλου"> -->
+                          <button type="submit" class="button imgbutton">Προσθήκη Φίλου</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"> 
+            <div *ngFor="let friend of friends;  let i=index">
+              <div *ngIf="i>5 && i<=10;">
+                <div class="flip-card column">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <div *ngIf="isNotBlack(friend.user_Image);"> 
+                        <img class="imgb" src="http://localhost:3000/{{friend.user_Image}}" alt="Avatar" style="width:290px;height:290px;">
+                      </div>                       
+                      <p>{{friend.name}} {{friend.surname}} 
+                        <ng-template [ngIf]="isActive(friend.is_active)">
+                          <span class="greendot"></span>
+                      </ng-template>
+                      <ng-template [ngIf]="notActive(friend.is_active)">
+                          <span class="reddot"></span>
+                      </ng-template>
+                      </p>                    </div>
+                    <div class="flip-card-back">
+                      <div class="container">
+                        <h2>{{friend.name}} {{friend.surname}}</h2>
+                        <p class="title">{{friend.job_description}}</p>
+                        <!-- <p>{{friend.}}</p> -->
+                        <p>{{friend.email}}</p>
+                        <form [formGroup]="addForm" (ngSubmit)="setID(friend._id); sendRequest();" >
+                          <!-- <input class="button imgbutton" type="submit" type="submit" value="Προσθήκη Φίλου"> -->
+                          <button type="submit" class="button imgbutton">Προσθήκη Φίλου</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"> 
+            <div *ngFor="let friend of friends;  let i=index">
+              <div *ngIf="i>10 && i<=15;">
+                <div class="flip-card column">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <div *ngIf="isNotBlack(friend.user_Image);"> 
+                        <img class="imgb" src="http://localhost:3000/{{friend.user_Image}}" alt="Avatar" style="width:290px;height:290px;">
+                      </div>                       
+                      <p>{{friend.name}} {{friend.surname}} 
+                        <ng-template [ngIf]="isActive(friend.is_active)">
+                          <span class="greendot"></span>
+                        </ng-template>
+                        <ng-template [ngIf]="notActive(friend.is_active)">
+                            <span class="reddot"></span>
+                        </ng-template>
+                      </p>                    </div>
+                    <div class="flip-card-back">
+                      <div class="container">
+                        <h2>{{friend.name}} {{friend.surname}}</h2>
+                        <p class="title">{{friend.job_description}}</p>
+                        <!-- <p>{{friend.}}</p> -->
+                        <p>{{friend.email}}</p>
+                        <form [formGroup]="addForm" (ngSubmit)="setID(friend._id); sendRequest();" >
+                          <!-- <input class="button imgbutton" type="submit" type="submit" value="Προσθήκη Φίλου"> -->
+                          <button type="submit" class="button imgbutton">Προσθήκη Φίλου</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+             <!-- <div class="row">  -->
+                 
+
+                <!-- <div class="flip-card column">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img class="imgb" src="../assets/3.jpeg" alt="Avatar" style="width:290px;height:290px;">
+                      <p>Mike Ross</p>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="container">
+                        <h2>Mike Ross</h2>
+                        <p class="title">Art Director</p>
+                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                        <p>example@example.com</p>
+                        <p><button class="button imgbutton">Contact</button></p>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+                <!-- <div class="flip-card column">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img class="imgb" src="../assets/1.jpg" alt="Avatar" style="width:290px;height:290px;">
+                      <p>Jane Doe</p>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="container">
+                        <h2>Jane Doe</h2>
+                        <p class="title">CEO &amp; Founder</p>
+                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                        <p>example@example.com</p>
+                        <p><button class="button imgbutton">Contact</button></p>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+                <!-- <div class="flip-card column">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img class="imgb" src="../assets/1.jpg" alt="Avatar" style="width:290px;height:290px;">
+                      <p>Jane Doe</p>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="container">
+                        <h2>Jane Doe</h2>
+                        <p class="title">CEO &amp; Founder</p>
+                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                        <p>example@example.com</p>
+                        <p><button class="button imgbutton">Contact</button></p>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+                <!-- <div class="flip-card column">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img class="imgb" src="../assets/1.jpg" alt="Avatar" style="width:290px;height:290px;">
+                      <p>Jane Doe</p>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="container">
+                        <h2>Jane Doe</h2>
+                        <p class="title">CEO &amp; Founder</p>
+                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                        <p>example@example.com</p>
+                        <p><button class="button imgbutton">Contact</button></p>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+                <!-- <div class="flip-card column">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img class="imgb" src="../assets/1.jpg" alt="Avatar" style="width:290px;height:290px;">
+                      <p>Jane Doe</p>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="container">
+                        <h2>Jane Doe</h2>
+                        <p class="title">CEO &amp; Founder</p>
+                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                        <p>example@example.com</p>
+                        <p><button class="button imgbutton">Contact</button></p>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+              
+              <!-- </div>  -->
+
+              <!-- <div class="row">  -->
+
+                <!-- <div class="flip-card column">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img class="imgb" src="../assets/2.jpg" alt="Avatar" style="width:290px;height:290px;">
+                      <p>John Doe</p>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="container">
+                        <h2>John Doe</h2>
+                        <p class="title">Designer</p>
+                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                        <p>example@example.com</p>
+                        <p><button class="button imgbutton">Contact</button></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>  -->
+
+                <!-- <div class="flip-card column">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <img class="imgb" src="../assets/3.jpeg" alt="Avatar" style="width:290px;height:290px;">
+                        <p>Mike Ross</p>
+                      </div>
+                      <div class="flip-card-back">
+                        <div class="container">
+                          <h2>Mike Ross</h2>
+                          <p class="title">Art Director</p>
+                          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                          <p>example@example.com</p>
+                          <p><button class="button imgbutton">Contact</button></p>
+                        </div>
+                    </div>
+                  </div>
+                </div> -->
+
+                <!-- <div class="flip-card column">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img class="imgb" src="../assets/1.jpg" alt="Avatar" style="width:290px;height:290px;">
+                      <p>Jane Doe</p>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="container">
+                        <h2>Jane Doe</h2>
+                        <p class="title">CEO &amp; Founder</p>
+                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                        <p>example@example.com</p>
+                        <p><button class="button imgbutton">Contact</button></p>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+                <!-- <div class="flip-card column">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img class="imgb" src="../assets/1.jpg" alt="Avatar" style="width:290px;height:290px;">
+                      <p>Jane Doe</p>
+                    </div>
+                    <div class="flip-card-back">
+                      <div class="container">
+                        <h2>Jane Doe</h2>
+                        <p class="title">CEO &amp; Founder</p>
+                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                        <p>example@example.com</p>
+                        <p><button class="button imgbutton">Contact</button></p>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+                
+              <!-- </div> -->
+        </div>
+    </body>
+</html>

@@ -1,0 +1,157 @@
+body,html {
+    margin: 0;
+    padding: 0;
+    background-image: url("../sky.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%; width: 100%;
+}
+* {
+    box-sizing: border-box;
+}
+
+#page {
+  display: flexbox;
+  height: 100vh;
+  grid-template-areas: "header header"
+                       "main  main";
+  grid-template-rows: 50px 1fr 30px;
+  grid-template-columns: 150px 1fr;
+}
+
+#header {
+    padding-top: 5px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    height: 55px;
+    /* border-bottom: 0.3px solid #d3d3d3; */
+    overflow: auto;
+    /* background-color: #1b1b1b; */
+}
+
+
+main {
+    grid-area: main;
+    border-width: thin 0 thin 0;
+    border-style: hidden;
+    padding: 10pt 10pt 10pt 0;
+    margin: auto;
+    text-align: center;
+    width: 50%;
+    padding: 10px;
+}
+
+#bar {
+    width:100;
+}
+
+#logo {
+    color: #08a3d9;
+    float: left;
+}
+
+#header-middle {
+    float: right;
+    width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#header-right {
+    float: right;
+    margin-right: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: rgb(42, 41, 71);
+    text-align: center;
+}
+
+.button {
+    /* background-color: #ffffff; */
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: 1.7px solid #000000;
+    color: rgb(0, 0, 0);
+    padding: 7px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 0px 0px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.corners {
+    border-radius: 4px;
+}
+
+.button:hover {
+    background-color: #4c6585; 
+    color: white;
+}
+
+body {
+    text-align: center;
+}
+
+
+
+
+.upload1 {
+    padding: 8px 10px;
+    width: 19%;
+    float: left;
+    margin-left: 5px;
+    /* border-radius: 50%; */
+    border: 1px solid rgba(221, 220, 220, 0.9); 
+    display: inline-block;
+    /* padding: 15px 25px; */
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;    
+    outline: none;
+    border-radius: 6px;
+    box-shadow: 0 3px rgba(145, 144, 144, 0.6);
+    margin-top: 8px;
+    background-color: rgba(255, 255, 255, 0.4);
+} 
+
+.upload1:hover , .upload:hover{background-color: #4c6585}
+
+.upload1:active , .upload:active, .button:active {
+  background-color: #4c6585;
+  box-shadow: 0 3px rgba(145, 144, 144, 0.6); 
+  transform: translateY(4px);
+}
+
+input[type=text], input[type=password] {
+    width: 70%;
+    float: left;
+    /* height: 25px; */
+    margin: 8px 0;
+    text-align: left;
+    text-indent: 5px;
+    font-size: 11pt;
+    border-radius: 5px;
+    border: solid 1.5px #D3D3D3;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    box-sizing: border-box;
+    padding: 10px 10px;
+  }
+
+  input[type=text]:hover,  input[type=password]:hover{
+    box-shadow: 0 0 5pt 0.5pt #535050;
+  }
+
+  input[type=text]:focus,  input[type=password]:focus {
+    width: 80%;
+    box-shadow: 0 0 5pt 2pt rgba(255, 255, 255, 0.7);
+    outline-width: 0px;
+  }

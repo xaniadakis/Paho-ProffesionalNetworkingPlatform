@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="start.component.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Poppins&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=PT+Sans&display=swap" rel="stylesheet">
+        <title>LinkedIn</title>
+        <style>
+            input.logo {
+              border-radius: 10%;
+            }
+        </style>
+    </head>
+    <body>
+        <div *ngIf="isDataAvailable;"> 
+            <div class="sidenav column side">
+                <ul>
+                    <li><br>
+                        <form method="get" action="app/loggedin/personal-info" style="display: inline;">
+                        <input class="logo" type="image" src="http://localhost:3000/{{myImage}}" width="100" height="100" />
+                    </form>
+                    <br><br>
+                        Καλωσήρθες, <div [innerHTML]="username"> </div>
+                        <!-- {{username}}! -->
+                    <br><br>
+                    </li>
+                    <li> <form method="get" action="app/loggedin/network" style="display: inline;">
+                        <button class="trbutton" mat-raised-button color="primary" >Δίκτυο</button>&nbsp;
+                    </form></li>
+                </ul> 
+            </div>
+        </div> 
+        <div id="page">
+            <br><br>
+            <form [formGroup]="postForm" (ngSubmit)="newPost()">
+                <div class="postdiv">
+                    <img id="avatar" src="http://localhost:3000/{{myImage}}" width="50" height="50">
+                    &nbsp; <input type="text" placeholder="Γράψτε κάτι.." id="post" formControlName="text"/>
+                </div>
+                <br>
+                <div class="postdiv">
+                        <div class="image-upload">
+                            <label for="file-input">
+                              <img class="upload" src="../../assets/photo.png" width="53" height="48"/>
+                            </label>
+                            <input id="file-input" type="file" name="post_Image" title="Upload photo" (change)="onFileChanged($event)">
+                            <!-- <input formControlName="post_Image" id="file-input" type="file" title="Upload photo"/> -->
+                        </div>
+                        &nbsp;<div class="image-upload">
+                            <label for="file-input">
+                              <img class="upload" src="../../assets/video.png" width="53" height="48"/>
+                            </label>
+                            <input formControlName="post_Video" id="file-input" type="file" />
+                        </div>
+                        &nbsp;<div class="image-upload">
+                            <label for="file-input">
+                              <img class="upload" src="../../assets/sound.png" width="53" height="48"/>
+                            </label>
+                            <input formControlName="post_Song" id="file-input" type="file" />
+                        </div>
+                        <!-- <input class="upload" img="../../assets/photo.png" type="file" id="img" name="img" accept="image/*" title="Upload photo"/>
+                        &nbsp;<input class="upload" type="image" src="../../assets/video.png" alt="Submit"  width="53" height="48" id="img" name="img" accept="video/*" title="Upload video"/>
+                        &nbsp;<input class="upload" type="image" src="../../assets/sound.png" alt="Submit"  width="48" height="48"  id="img" name="img" accept="audio/*" title="Upload soundclip"/> -->
+                </div>
+                <!-- <br> -->
+                <div class="postdiv">
+                    <input class="upload1" type="submit" value="Ανάρτηση">
+                </div>
+            </form> 
+            <br>
+            <div class="posts column middle">
+            <div *ngIf="isDataAvailable; else notAvailable"> 
+                <!-- Data has arrived. -->
+                <!-- {{posts}} -->
+                <div *ngFor="let post of posts">
+                    <div class="container darker">
+                        <img id="avatar" src="http://localhost:3000/{{post._owner_name.user_Image}}" alt="Avatar" class="left"><p><b>{{post._owner_name.name}} {{post._owner_name.surname}}  
+                            <!-- <div *ngIf="isActive(post._owner_name.is_active); else notActive">
+                                <span class="greendot"></span>
+                            </div> -->
+                            <ng-template [ngIf]="isActive(post._owner_name.is_active)">
+                                <span class="greendot"></span>
+                            </ng-template>
+                            <ng-template [ngIf]="notActive(post._owner_name.is_active)">
+                                <span class="reddot"></span>
+                            </ng-template>
+                        </b></p>
+                        <span class="time-left">{{post.date}}</span>
+                        <br>
+                        <div *ngIf="isNotBlack(post.post_Image);"> 
+                            <div class="fill">
+                                <img id="post_Image" src="http://localhost:3000/{{post.post_Image}}" alt="Cannot display image">
+                            </div>  
+                        </div>        
+                        <br>
+                        <td>{{post.text}}</td>
+                        <br>
+                        <div id="row">
+
+                            <form [formGroup]="likeForm" (ngSubmit)="setId(post._id); likePost();">
+                                <input class="upload1 upload2 upload4" type="image" src="../../assets/like.png" width="35" height="27"/>
+                            </form>
+                            <!-- <form onsubmit="setId(post._id); likePost(); return false;" id="likeForm"> -->
+                                <!-- <input type="submit" value="Submit"> -->
+
+                                <!-- <button type="submit" style="border: 0; background: transparent" form="likeForm">
+                                    <img src="../../assets/like.png" width="35" height="27" alt="submit" />
+                                </button> -->
+                                <!-- <input class="upload1 upload2 upload4" type="image" src="../../assets/like.png" width="35" height="27"/> -->
+                            <!-- </form>  -->
+                        <!-- </div> -->
+                        <!-- <div id="row"> -->
+                            <p id="like">Αρέσει σε {{post.likes}} χρήστες.</p>
+                        </div>
+                        <!-- <td>{{post.likes}}</td> -->
+                        <!-- <td>{{ setId(post._id) }} </td> -->
+                        <!-- <script>
+                            function setId(val){
+                                console.log(val);
+                            }
+                        </script> -->
+                        <form [formGroup]="commentForm" (ngSubmit)="setId(post._id); newComment();">
+                            <!-- <input type="text" formControlName="postId"  [value]="post._id" style="visibility: hidden; display:inline;"> -->
+                            <div class="postdiv" style="float:left">
+                                &nbsp; <input type="text" formControlName="text" placeholder="Γράψτε κάτι.." id="post1"/><input class="upload1 upload3" type="submit" value="Σχολιάστε">
+                            </div>
+                        </form>
+                        <br>
+                        <br>
+                        <div  *ngFor="let comment of post.ncomments">
+                            <div id="commentrow">
+                                {{comment.commentator_name}} says: <p id="comment"> {{comment.text}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <ng-template #notAvailable>
+                Data hasn't arrived.
+            </ng-template>
+        </div>
+    </body>
+</html>
