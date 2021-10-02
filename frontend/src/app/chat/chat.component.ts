@@ -21,8 +21,10 @@ export class ChatComponent implements OnInit {
   text = new FormControl('', [ ]);
   constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient, 
     private activatedRoute: ActivatedRoute, private chat: ChatService) { 
+      var t:string = this.getTime()
+
       this.chat.read()
-      .subscribe(data=>this.messages.push(data));
+      .subscribe(data=>this.timemessages.push({user_name: data.user_name, message:data.message, time: t} ));
     }
 
 
@@ -53,7 +55,7 @@ export class ChatComponent implements OnInit {
     console.log("will send "+this.messageForm.controls['text'].value)
     this.chat.write(this.messageForm.controls['text'].value, this.username, );
     var t:string = this.getTime()
-    this.messages.push({user_name:this.username , message:this.messageForm.controls['text'].value})
+    this.timemessages.push({user_name:this.username , message:this.messageForm.controls['text'].value, time: t})
     this.messageForm.reset();  // Reset all form data
   }
 

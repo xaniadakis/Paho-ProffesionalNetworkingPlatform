@@ -53,6 +53,11 @@ export class StartComponent implements OnInit {
   uploadedImage;
 
   async ngOnInit() {
+    console.log(sessionStorage.getItem('token'))
+    this.decjwt = JSON.parse(JSON.stringify(dec_token(sessionStorage.getItem('token'))));
+    console.log(this.decjwt)
+
+    sessionStorage.setItem('userid',this.decjwt.userID);
     console.log(sessionStorage.getItem('name'))
     console.log(sessionStorage.getItem('userid'))
     console.log(
