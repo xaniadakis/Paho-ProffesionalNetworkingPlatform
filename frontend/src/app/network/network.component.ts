@@ -33,7 +33,7 @@ export class NetworkComponent implements OnInit {
       this.network = varia.All;
       console.log('FETCHED', this.friends, this.network );
     });
-    this.myImage = localStorage.getItem('user_Image');
+    this.myImage = sessionStorage.getItem('user_Image');
     this.addForm = new FormGroup({
       _to_friend: this._to_friend,
       _owner: this._owner
@@ -57,7 +57,7 @@ export class NetworkComponent implements OnInit {
   setID(id) {
     console.log(id);
     // this.addForm.setValue({_to_friend: id})
-    // this.addForm.setValue({_owner: localStorage.getItem('userid')})
+    // this.addForm.setValue({_owner: sessionStorage.getItem('userid')})
     this._to_friend = id
   }
 
@@ -67,7 +67,7 @@ export class NetworkComponent implements OnInit {
     this.submitted = true;
     this.addForm = this.formBuilder.group({
       _to_friend: this._to_friend,
-      _owner: localStorage.getItem('userid')   
+      _owner: sessionStorage.getItem('userid')   
     });
     // if (this.addForm.valid) {
       console.log(this.addForm.value);
@@ -85,7 +85,7 @@ export class NetworkComponent implements OnInit {
       xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       // xhttp.send(formData);
       const json = {
-        "_owner": localStorage.getItem('userid'),
+        "_owner": sessionStorage.getItem('userid'),
         "_to_friend":  this.addForm.controls['_to_friend'].value
       }
       xhttp.send(JSON.stringify(json));

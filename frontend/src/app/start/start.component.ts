@@ -53,8 +53,8 @@ export class StartComponent implements OnInit {
   uploadedImage;
 
   async ngOnInit() {
-    console.log(localStorage.getItem('name'))
-    console.log(localStorage.getItem('userid'))
+    console.log(sessionStorage.getItem('name'))
+    console.log(sessionStorage.getItem('userid'))
     console.log(
       'Activated route data in Component:::',
       this.activatedRoute.data
@@ -82,29 +82,29 @@ export class StartComponent implements OnInit {
     this.myImage = this.info[0].user_Image
     this.isDataAvailable = true;
      
-    var jwt = localStorage.getItem('token');
+    var jwt = sessionStorage.getItem('token');
     this.decjwt = JSON.parse(JSON.stringify(dec_token(jwt)));
-    localStorage.setItem('userid',this.decjwt.userID);
+    sessionStorage.setItem('userid',this.decjwt.userID);
     // console.log(this.decjwt.name)
-    localStorage.setItem('name',this.info[0].name);
-    localStorage.setItem('surname',this.info[0].surname);
-    // localStorage.setItem('country',this.info[0].country);
-    // localStorage.setItem('city',this.info[0].city);
-    // localStorage.setItem('address',this.info[0].address);
-    // localStorage.setItem('number',this.info[0].number);
-    // localStorage.setItem('postcode',this.info[0].postcode);
-    localStorage.setItem('job_description',this.info[0].job_description);
-    localStorage.setItem('education',this.info[0].education);
-    // localStorage.setItem('skills',this.info[0].skills);
-    // localStorage.setItem('age',this.info[0].age);
-    // localStorage.setItem('mobile',this.info[0].mobile);
-    localStorage.setItem('email',this.info[0].email);
-    // localStorage.setItem('github',this.info[0].github);
-    // localStorage.setItem('facebook',this.info[0].facebook);
-    // localStorage.setItem('twitter',this.info[0].twitter);
-    // localStorage.setItem('instagram',this.info[0].instagram);
-    // localStorage.setItem('youtube',this.info[0].youtube);
-    localStorage.setItem('user_Image',this.info[0].user_Image);
+    sessionStorage.setItem('name',this.info[0].name);
+    sessionStorage.setItem('surname',this.info[0].surname);
+    // sessionStorage.setItem('country',this.info[0].country);
+    // sessionStorage.setItem('city',this.info[0].city);
+    // sessionStorage.setItem('address',this.info[0].address);
+    // sessionStorage.setItem('number',this.info[0].number);
+    // sessionStorage.setItem('postcode',this.info[0].postcode);
+    sessionStorage.setItem('job_description',this.info[0].job_description);
+    sessionStorage.setItem('education',this.info[0].education);
+    // sessionStorage.setItem('skills',this.info[0].skills);
+    // sessionStorage.setItem('age',this.info[0].age);
+    // sessionStorage.setItem('mobile',this.info[0].mobile);
+    sessionStorage.setItem('email',this.info[0].email);
+    // sessionStorage.setItem('github',this.info[0].github);
+    // sessionStorage.setItem('facebook',this.info[0].facebook);
+    // sessionStorage.setItem('twitter',this.info[0].twitter);
+    // sessionStorage.setItem('instagram',this.info[0].instagram);
+    // sessionStorage.setItem('youtube',this.info[0].youtube);
+    sessionStorage.setItem('user_Image',this.info[0].user_Image);
 
 
     this.commentForm = this.formBuilder.group({
@@ -121,8 +121,8 @@ export class StartComponent implements OnInit {
       text: this.text,
       _id: this._id,
       post_Image: this.post_Image,
-      _owner: localStorage.getItem('userid'),
-      token: localStorage.getItem('token'),
+      _owner: sessionStorage.getItem('userid'),
+      token: sessionStorage.getItem('token'),
       post_Song: this.post_Song,
       post_Video: this.post_Video
       // comment: this.commentForm
@@ -184,10 +184,10 @@ export class StartComponent implements OnInit {
       formData.append("post_Image", this.postForm.controls['post_Image'].value);
       // formData.append("post_Song", this.postForm.controls['post_Song'].value);
       // formData.append("post_Video", this.postForm.controls['post_Video'].value);
-      // formData.append("token", localStorage.getItem('token'));
-      formData.append("_owner", localStorage.getItem('userid'));
+      // formData.append("token", sessionStorage.getItem('token'));
+      formData.append("_owner", sessionStorage.getItem('userid'));
 
-      // localStorage.setItem("user-Data", JSON.stringify(this.postForm.value));
+      // sessionStorage.setItem("user-Data", JSON.stringify(this.postForm.value));
     //   const headerDict = {
     //     // "Target-URL": this.url,
     //     "Content-Type": undefined,
@@ -214,7 +214,7 @@ export class StartComponent implements OnInit {
       xhttp.open("POST", "http://localhost:3000/startpage/post");
       // xhttp.setRequestHeader("Content-Type", undefined);
       xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
-      xhttp.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+      xhttp.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
 
       xhttp.send(formData);
 
@@ -243,8 +243,8 @@ export class StartComponent implements OnInit {
       // const json = {
       //   "title": "boi",//this.postForm.controls['title'].value,
       //   "text": this.postForm.controls['text'].value,
-      //   "_owner": localStorage.getItem('userid'),
-      //   "token": localStorage.getItem('token'),
+      //   "_owner": sessionStorage.getItem('userid'),
+      //   "token": sessionStorage.getItem('token'),
       // };
 
       // xhttp.send(JSON.stringify(json));
@@ -300,8 +300,8 @@ export class StartComponent implements OnInit {
       // var formData = new FormData();
 
       // formData.append("post", this.postForm.controls['post'].value);
-      // localStorage.setItem("user-Data", JSON.stringify(this.loginForm.value));
-      // this.http.post('http://localhost:3010/user/login', localStorage).subscribe(
+      // sessionStorage.setItem("user-Data", JSON.stringify(this.loginForm.value));
+      // this.http.post('http://localhost:3010/user/login', sessionStorage).subscribe(
       //   (response) => console.log(response),
       //   (error) => console.log(error),
       // )
@@ -322,14 +322,14 @@ export class StartComponent implements OnInit {
       // xhttp.setRequestHeader("Target-URL", "http://localhost:3000/startpage/post/like");
       // xhttp.send(formData);
       xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-      xhttp.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+      xhttp.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
 
       // xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
       const json = {
-        "token": localStorage.getItem('token'),
+        "token": sessionStorage.getItem('token'),
         "postId": this.postId,
         // "text": this.commentForm.controls['text'].value,
-        "userID": localStorage.getItem('userid')
+        "userID": sessionStorage.getItem('userid')
       };
       // console.log("formData")
       // console.log(JSON.stringify(json))
@@ -357,8 +357,8 @@ export class StartComponent implements OnInit {
       // var formData = new FormData();
 
       // formData.append("post", this.postForm.controls['post'].value);
-      // localStorage.setItem("user-Data", JSON.stringify(this.loginForm.value));
-      // this.http.post('http://localhost:3010/user/login', localStorage).subscribe(
+      // sessionStorage.setItem("user-Data", JSON.stringify(this.loginForm.value));
+      // this.http.post('http://localhost:3010/user/login', sessionStorage).subscribe(
       //   (response) => console.log(response),
       //   (error) => console.log(error),
       // )
@@ -380,10 +380,10 @@ export class StartComponent implements OnInit {
       xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
       const json = {
-        "token": localStorage.getItem('token'),
+        "token": sessionStorage.getItem('token'),
         // "postId": this.commentForm.controls['postId'].value,
         "text": this.commentForm.controls['text'].value,
-        "_owner": localStorage.getItem('userid')
+        "_owner": sessionStorage.getItem('userid')
       };
 
       console.log(JSON.stringify(json));

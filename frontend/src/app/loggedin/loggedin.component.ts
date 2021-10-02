@@ -19,7 +19,7 @@ export class LoggedinComponent implements OnInit {
   onLogout(){
     var xhttp = new XMLHttpRequest();
     var Router = this.router;
-    xhttp.open("PATCH", "http://localhost:3000/user/logout/"+localStorage.getItem('userid'));
+    xhttp.open("PATCH", "http://localhost:3000/user/logout/"+sessionStorage.getItem('userid'));
     // alert("logging!")
       // xhttp.setRequestHeader("Target-URL", "http://localhost:3000/settings/mail");
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -27,11 +27,11 @@ export class LoggedinComponent implements OnInit {
       if (xhttp.readyState == XMLHttpRequest.DONE) {
         // alert("out!")
         if(xhttp.status==200){
-          localStorage.removeItem('token');
-          localStorage.removeItem('userid');
-          localStorage.removeItem('email');
-          localStorage.removeItem('name');
-          localStorage.clear();
+          sessionStorage.removeItem('token');
+          sessionStorage.removeItem('userid');
+          sessionStorage.removeItem('email');
+          sessionStorage.removeItem('name');
+          sessionStorage.clear();
           Router.navigateByUrl('/app/welcome');
           alert("You are logged out!")
         }

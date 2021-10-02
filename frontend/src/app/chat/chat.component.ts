@@ -13,8 +13,8 @@ import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms"
   providers: [ChatService]
 })
 export class ChatComponent implements OnInit {
-  messages: Array<{userName:String,message:String}> = [];
-  timemessages: Array<{userName:String,message:String, time:String}> = [];
+  messages: Array<{user_name:String,message:String}> = [];
+  timemessages: Array<{user_name:String,message:String, time:String}> = [];
   friends: Array<Friend> = [];
   friendsnames: Array<string> = [];
   public messageForm: FormGroup;
@@ -26,7 +26,7 @@ export class ChatComponent implements OnInit {
     }
 
 
-  username: string = localStorage.getItem("name");
+  username: string = sessionStorage.getItem("name");
   ngOnInit(): void {
     this.activatedRoute.data
     .subscribe( (response:any) => {
@@ -53,7 +53,7 @@ export class ChatComponent implements OnInit {
     console.log("will send "+this.messageForm.controls['text'].value)
     this.chat.write(this.messageForm.controls['text'].value, this.username, );
     var t:string = this.getTime()
-    this.messages.push({userName:this.username , message:this.messageForm.controls['text'].value})
+    this.messages.push({user_name:this.username , message:this.messageForm.controls['text'].value})
     this.messageForm.reset();  // Reset all form data
   }
 

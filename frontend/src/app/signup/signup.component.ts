@@ -84,8 +84,8 @@ export class SignupComponent implements OnInit {
       this.submitted = true;
       if (this.signupForm.valid) {
         console.log(this.signupForm.value);
-        // localStorage.setItem("user-Data", JSON.stringify(this.signupForm.value));
-        // this.http.post('http://localhost:3000/user/signup', localStorage).subscribe(
+        // sessionStorage.setItem("user-Data", JSON.stringify(this.signupForm.value));
+        // this.http.post('http://localhost:3000/user/signup', sessionStorage).subscribe(
         //   (response) => console.log(response),
         //   (error) => console.log(error)
         // )
@@ -114,9 +114,9 @@ export class SignupComponent implements OnInit {
                 alert("User successfully created.")
                 res = JSON.parse(xhttp.response) 
                 var jwt = res.token
-                localStorage.setItem('token',jwt);
+                sessionStorage.setItem('token',jwt);
                 Decjwt = JSON.parse(JSON.stringify(dec_token(jwt)));
-                localStorage.setItem('userid',Decjwt.userID);
+                sessionStorage.setItem('userid',Decjwt.userID);
                 Router.navigateByUrl('/app/loggedin/start');
               }
     

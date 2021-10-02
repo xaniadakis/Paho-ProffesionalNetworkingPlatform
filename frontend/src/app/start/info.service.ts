@@ -11,7 +11,7 @@ import { jwt } from '../welcome/welcome.component'
 })
 export class InfoService {
     // cors_proxy = "http://localhost:3010";
-    url = "http://localhost:3000/personalInfo/"+localStorage.getItem("userid");
+    url = "http://localhost:3000/personalInfo/"+sessionStorage.getItem("userid");
     constructor(public http: HttpClient) {}
     
     getInfo(): Observable<User> {
@@ -36,7 +36,7 @@ export class InfoService {
         const requestOptions = {                                                                                                                                                                                 
             headers: headerDict, 
         };
-        console.log("WILL get info for ",localStorage.getItem("name"),localStorage.getItem("userid"))
+        console.log("WILL get info for ",sessionStorage.getItem("name"),sessionStorage.getItem("userid"))
         return this.http.get<User>(this.url, requestOptions)
     }
 }

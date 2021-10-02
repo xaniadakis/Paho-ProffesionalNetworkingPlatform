@@ -17,7 +17,7 @@ export class SettingsComponent implements OnInit {
   password = new FormControl('', [
     Validators.minLength(4),
   ]);
-  UserId = localStorage.getItem("userid")
+  UserId = sessionStorage.getItem("userid")
   public submitted = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient) {}
@@ -51,9 +51,9 @@ export class SettingsComponent implements OnInit {
       xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       // xhttp.send(formData);
       const json = {
-        "UserId": localStorage.getItem('userid'),
+        "UserId": sessionStorage.getItem('userid'),
         "email": this.newMail.controls['email'].value,
-        "token": localStorage.getItem('token')
+        "token": sessionStorage.getItem('token')
       };
 
       xhttp.send(JSON.stringify(json));
@@ -80,9 +80,9 @@ export class SettingsComponent implements OnInit {
       xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       // xhttp.send(formData);
       const json = {
-        "UserId": localStorage.getItem('userid'),
+        "UserId": sessionStorage.getItem('userid'),
         "password": this.newPassword.controls['password'].value,
-        "token": localStorage.getItem('token')
+        "token": sessionStorage.getItem('token')
       };
 
       xhttp.send(JSON.stringify(json));

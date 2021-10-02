@@ -11,7 +11,7 @@ import { Observable, throwError } from 'rxjs';
 export class AuthorizationInterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    const jwt = localStorage.getItem('token');
+    const jwt = sessionStorage.getItem('token');
 
     req = req.clone({ headers: req.headers.set('Authorization', 'Bearer ' + jwt) });
     req = req.clone({ headers: req.headers.set('Content-Type', 'application/json') });

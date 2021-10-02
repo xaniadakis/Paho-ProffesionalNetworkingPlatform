@@ -45,7 +45,7 @@ export class WelcomeComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient, private auth: AuthenticationService) {}
 
   ngOnInit(): void {
-    localStorage.clear();
+    sessionStorage.clear();
     this.loginForm = this.formBuilder.group({
       email: this.email,
       password: this.password
@@ -58,7 +58,7 @@ export class WelcomeComponent implements OnInit {
 
   onLogin(): void {
     this.submitted = true;
-    localStorage.clear();
+    sessionStorage.clear();
     // if (this.loginForm.valid) {
       console.log("logging in",this.loginForm.value);
       var formData = new FormData();
@@ -70,7 +70,7 @@ export class WelcomeComponent implements OnInit {
       xhttp.onreadystatechange = function() {
         if (xhttp.readyState == XMLHttpRequest.DONE) {
             // alert(xhttp.response);
-            // alert(JSON.parse(localStorage.getItem("token")))
+            // alert(JSON.parse(sessionStorage.getItem("token")))
             if(xhttp.status != 200)
               alert("Wrong email/password");
               Router.navigateByUrl('/app/welcome'); 
@@ -78,12 +78,12 @@ export class WelcomeComponent implements OnInit {
             console.log(xhttp.response);
             res = JSON.parse(xhttp.response) 
             jwt = res.token
-            localStorage.setItem('token',jwt);
+            sessionStorage.setItem('token',jwt);
             Decjwt = JSON.parse(JSON.stringify(dec_token(jwt)));
-            localStorage.setItem('userid',Decjwt.userID);
-            localStorage.setItem('name',Decjwt.name);
+            sessionStorage.setItem('userid',Decjwt.userID);
+            sessionStorage.setItem('name',Decjwt.name);
 
-            console.log("loggedin",localStorage.getItem('name'));
+            console.log("loggedin",sessionStorage.getItem('name'));
 
             // alert(res.token);
             // alert(JSON.stringify(res));

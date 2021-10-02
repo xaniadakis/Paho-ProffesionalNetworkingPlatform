@@ -11,7 +11,7 @@ import { jwt } from '../welcome/welcome.component'
 })
 export class PersonalInfoService {
     // cors_proxy = "http://localhost:3010";
-    url = "http://localhost:3000/personalInfo/"+localStorage.getItem("userid");
+    url = "http://localhost:3000/personalInfo/"+sessionStorage.getItem("userid");
     constructor(public http: HttpClient) {}
     
     getInfo(): Observable<User> {

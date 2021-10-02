@@ -60,7 +60,7 @@ export class AuthenticationService {
     }
 
     isAuthenticated(): boolean{
-      const token = localStorage.getItem('token');
+      const token = sessionStorage.getItem('token');
       return !this.jwtHelper.isTokenExpired(token);
     }
 

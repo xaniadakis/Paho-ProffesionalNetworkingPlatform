@@ -57,25 +57,25 @@ export class PersonalInfoComponent implements OnInit {
   user_Image: string;
   isDataAvailable:boolean = false;
   public submitted = false;
-  // email: string = localStorage.getItem('email')
-  // name: string = localStorage.getItem('name')
-  // surname: string = localStorage.getItem('surname');
-  // country: string = localStorage.getItem('country');
-  // city: string = localStorage.getItem('city');
-  // address: string = localStorage.getItem('address');
-  // number: string = localStorage.getItem('number');
-  // postcode: string = localStorage.getItem('postcode');
-  // job_description: string = localStorage.getItem('job_description');
-  // education: string = localStorage.getItem('education');
-  // skills: string = localStorage.getItem('skills');
-  // age: string = localStorage.getItem('age');
-  // mobile: string = localStorage.getItem('mobile');
-  // github: string = localStorage.getItem('github');
-  // facebook: string = localStorage.getItem('facebook');
-  // twitter: string = localStorage.getItem('twitter');
-  // instagram: string = localStorage.getItem('instagram');
-  // youtube: string = localStorage.getItem('youtube');
-  // user_Image: string = localStorage.getItem('user_Image');
+  // email: string = sessionStorage.getItem('email')
+  // name: string = sessionStorage.getItem('name')
+  // surname: string = sessionStorage.getItem('surname');
+  // country: string = sessionStorage.getItem('country');
+  // city: string = sessionStorage.getItem('city');
+  // address: string = sessionStorage.getItem('address');
+  // number: string = sessionStorage.getItem('number');
+  // postcode: string = sessionStorage.getItem('postcode');
+  // job_description: string = sessionStorage.getItem('job_description');
+  // education: string = sessionStorage.getItem('education');
+  // skills: string = sessionStorage.getItem('skills');
+  // age: string = sessionStorage.getItem('age');
+  // mobile: string = sessionStorage.getItem('mobile');
+  // github: string = sessionStorage.getItem('github');
+  // facebook: string = sessionStorage.getItem('facebook');
+  // twitter: string = sessionStorage.getItem('twitter');
+  // instagram: string = sessionStorage.getItem('instagram');
+  // youtube: string = sessionStorage.getItem('youtube');
+  // user_Image: string = sessionStorage.getItem('user_Image');
   ngOnInit(): void {
     this.activatedRoute.data
     .subscribe( (response:any) => {
@@ -169,7 +169,7 @@ export class PersonalInfoComponent implements OnInit {
             window.location.reload();
         }
       }
-      xhttp.open("PATCH", "http://localhost:3000/personalInfo/"+localStorage.getItem('userid'));//"http://localhost:3010");
+      xhttp.open("PATCH", "http://localhost:3000/personalInfo/"+sessionStorage.getItem('userid'));//"http://localhost:3010");
       // xhttp.setRequestHeader("Target-URL", "http://localhost:3000/settings/mail");
       xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       // xhttp.send(formData);

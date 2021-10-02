@@ -11,7 +11,7 @@ import { jwt } from '../welcome/welcome.component'
 })
 export class FriendService {
     cors_proxy = "http://localhost:3010";
-    url = "http://localhost:3000/network/"+localStorage.getItem('userid');
+    url = "http://localhost:3000/network/"+sessionStorage.getItem('userid');
     constructor(public http: HttpClient) {}
     
     getFriends(): Observable<Array<Friend>> {
