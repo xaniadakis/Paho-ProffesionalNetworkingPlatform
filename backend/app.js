@@ -43,12 +43,21 @@ app.use('/api/requests' , requestsRoute);
 app.use('/api/welcome' , welocomeRoute);
 app.use('/api/user' , userRoute );
 // app.use('/startpage', startpageRoute);
+<<<<<<< HEAD
+app.use('/network', networkRoute);
+app.use('/startpage', auth , startpageRoute);
+app.use('/postings', postingsRoute);
+app.use('/settings', settingsRoute);
+app.use('/chat', chatRoute);
+app.use('/personalInfo', personalInfoRoute);
+=======
 app.use('/api/network', networkRoute);
 app.use('/api/startpage', auth , startpageRoute);
 app.use('/api/postings', postingsRoute);
 app.use('/api/settings', settingsRoute);
 app.use('/api/chat', chatRoute);
 app.use('/api/personalInfo', personalInfoRoute);
+>>>>>>> fc1a82707c0b9b071cc5890d54bd5d5c021d43fb
 
 // const sendMail = (user, callback) => {
 //     const transporter = nodemailer.createTransport({
