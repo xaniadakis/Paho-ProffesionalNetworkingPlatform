@@ -42,17 +42,17 @@
                                    
                   <div id="footer">
                   <div class="well" style="height:200px; padding:15px;">
-                      <div *ngFor="let message of messages">
+                      <div *ngFor="let message of timemessages">
                         <ng-template [ngIf]="isMyUsername(message.user_name)">
                           <div class="container darker">
-                            <span><strong>{{message.user_name}} : </strong> {{message.message}}</span>
-                            <!-- <span class="time-right">{{message.time}}</span> -->
+                            <span><strong>{{message.user_name}}: </strong> {{message.message}}</span>
+                            <span class="time-right">{{message.time}}</span>
                           </div>
                         </ng-template>
                         <ng-template [ngIf]="notMyUsername(message.user_name)">
                           <div class="container lighter">
-                            <span><strong>{{message.user_name}} : </strong> {{message.message}}</span>
-                            <!-- <span class="time-left">{{message.time}}</span> -->
+                            <span><strong>{{message.user_name}}: </strong> {{message.message}}</span>
+                            <span class="time-left">{{message.time}}</span>
                           </div>
                         </ng-template>
                       </div>
