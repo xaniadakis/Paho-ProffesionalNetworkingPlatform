@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Friend } from '../network/friend'
 import { ChatService } from './chat.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
+import { GlobalConstants } from '../common/global-constants';
 
 @Component({
   selector: 'app-chat',
@@ -13,6 +14,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms"
   providers: [ChatService]
 })
 export class ChatComponent implements OnInit {
+  public APIURL: string = GlobalConstants.APIURL;
   messages: Array<{user_name:String,message:String}> = [];
   timemessages: Array<{user_name:String,message:String, time:String}> = [];
   friends: Array<Friend> = [];
@@ -21,8 +23,10 @@ export class ChatComponent implements OnInit {
   text = new FormControl('', [ ]);
   constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient, 
     private activatedRoute: ActivatedRoute, private chat: ChatService) { 
+      var t:string = this.getTime()
+
       this.chat.read()
-      .subscribe(data=>this.messages.push(data));
+      .subscribe(data=>this.timemessages.push({user_name: data.user_name, message:data.message, time: t} ));
     }
 
 
@@ -53,7 +57,7 @@ export class ChatComponent implements OnInit {
     console.log("will send "+this.messageForm.controls['text'].value)
     this.chat.write(this.messageForm.controls['text'].value, this.username, );
     var t:string = this.getTime()
-    this.messages.push({user_name:this.username , message:this.messageForm.controls['text'].value})
+    this.timemessages.push({user_name:this.username , message:this.messageForm.controls['text'].value, time: t})
     this.messageForm.reset();  // Reset all form data
   }
 

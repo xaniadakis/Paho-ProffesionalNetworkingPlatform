@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
  
 import { User } from './network';
 import { jwt } from '../welcome/welcome.component'
+import { GlobalConstants } from '../common/global-constants';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ import { jwt } from '../welcome/welcome.component'
 })
 export class NetworkService {
     cors_proxy = "http://localhost:3010";
-    url = "http://localhost:3000/network";
+    url = GlobalConstants.APIURL+"network";
     constructor(public http: HttpClient) {}
     
     getAll(): Observable<Array<User>> {

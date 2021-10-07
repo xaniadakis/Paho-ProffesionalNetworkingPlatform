@@ -4,18 +4,18 @@ const socketio = require('socket.io')
 const fs = require('fs')
 const path = require('path')
 const https = require('https')
-
 const port = process.env.PORT || 3000;
 
-const server = http.createServer(app);
-// const server = https.createServer({
-//     key: fs.readFileSync(path.join(__dirname, 'cert', 'key.pem')),
-//     cert: fs.readFileSync(path.join(__dirname, 'cert', 'cert.pem'))
-// }, app)
+// const server = http.createServer(app);
+const server = https.createServer({
+    key: fs.readFileSync(path.join(__dirname, 'cert', 'localhost.key')),
+    cert: fs.readFileSync(path.join(__dirname, 'cert', 'localhost.crt'))
+}, app)
 
 const io = require('socket.io')(server, {
     cors: {
-        origin: '*'
+        origin: '*',
+        methods: [ "GET", "POST"]
     }
 });
 

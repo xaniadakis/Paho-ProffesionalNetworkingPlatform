@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router, Event as RouterEvent, NavigationStart,
-         NavigationEnd, NavigationCancel, NavigationError } from '@angular/router'
+         NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
+import { GlobalConstants } from './common/global-constants';
+import { BrowserModule, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +11,19 @@ import { Router, Event as RouterEvent, NavigationStart,
 })
 
 export class AppComponent {
-  title = 'project';
+  title = 'Taco';
 
   public showOverlay = true;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private titleService: Title) {
 
     router.events.subscribe((event: RouterEvent) => {
       this.navigationInterceptor(event)
     })
+  }
+
+  ngOnInit(){
+    this.titleService.setTitle(this.title);
   }
   
   navigationInterceptor(event: RouterEvent): void {

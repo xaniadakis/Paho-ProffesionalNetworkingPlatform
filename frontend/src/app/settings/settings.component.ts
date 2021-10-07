@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { HttpClient } from '@angular/common/http';
+import { GlobalConstants } from '../common/global-constants';
 
 @Component({
   selector: 'app-settings',
@@ -46,7 +47,7 @@ export class SettingsComponent implements OnInit {
             alert(xhttp.status + xhttp.response); 
         }
       }
-      xhttp.open("PATCH", "http://localhost:3000/settings/mail");//"http://localhost:3010");
+      xhttp.open("PATCH", GlobalConstants.APIURL+"settings/mail");//"http://localhost:3010");
       // xhttp.setRequestHeader("Target-URL", "http://localhost:3000/settings/mail");
       xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       // xhttp.send(formData);
@@ -75,7 +76,7 @@ export class SettingsComponent implements OnInit {
           alert(xhttp.status + xhttp.response); 
         }
       }
-      xhttp.open("PATCH", "http://localhost:3000/settings/password");//"http://localhost:3010");
+      xhttp.open("PATCH", GlobalConstants.APIURL+"settings/password");//"http://localhost:3010");
       // xhttp.setRequestHeader("Target-URL", "http://localhost:3000/settings/password");
       xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       // xhttp.send(formData);

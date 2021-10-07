@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
  
 import { Posting } from './posting';
 import { jwt } from '../welcome/welcome.component'
+import { GlobalConstants } from '../common/global-constants';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ import { jwt } from '../welcome/welcome.component'
 })
 export class PostingService {
     cors_proxy = "http://localhost:3010";
-    url = "http://localhost:3000/postings/getallpostings";
+    url = GlobalConstants.APIURL+"postings/getallpostings";
     constructor(public http: HttpClient) {}
     
     getPostings(): Observable<Array<Posting>> {

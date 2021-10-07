@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Friend } from './friend'
 import { User } from './network'
 import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
+import { GlobalConstants } from '../common/global-constants';
 
 @Component({
   selector: 'app-network',
@@ -14,6 +15,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms"
 export class NetworkComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient, private activatedRoute: ActivatedRoute) { }
+  public APIURL: string = GlobalConstants.APIURL;
   friends: Array<Friend> = [];
   network: Array<User> = [];
   myImage: string;
@@ -80,7 +82,7 @@ export class NetworkComponent implements OnInit {
             // window.location.reload();
         }
       }
-      xhttp.open("POST", "http://localhost:3000/requests/create/");//"http://localhost:3010");
+      xhttp.open("POST", GlobalConstants.APIURL+"requests/create/");//"http://localhost:3010");
       // xhttp.setRequestHeader("Target-URL", "http://localhost:3000/settings/mail");
       xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       // xhttp.send(formData);

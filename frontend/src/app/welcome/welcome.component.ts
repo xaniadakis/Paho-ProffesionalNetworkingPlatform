@@ -6,7 +6,7 @@ import { AuthenticationService } from '../auth.service'
 import { JWT, response } from '../jwt';
 export { jwt };
 import { decodedjwt } from '../decodedjwt';
-
+import { GlobalConstants } from '../common/global-constants'
 
 declare function myFunction(): any;
 declare function greet(): any;
@@ -72,9 +72,17 @@ export class WelcomeComponent implements OnInit {
             // alert(xhttp.response);
             // alert(JSON.parse(sessionStorage.getItem("token")))
             if(xhttp.status != 200){
+<<<<<<< HEAD
               alert("Wrong email/password");
               Router.navigateByUrl('/app/welcome'); 
             }
+=======
+	      // alert(xhttp.response);
+              alert("Wrong email/password");
+              Router.navigateByUrl('/app/welcome'); 
+	    }
+
+>>>>>>> fc1a82707c0b9b071cc5890d54bd5d5c021d43fb
             console.log(xhttp.response);
             res = JSON.parse(xhttp.response) 
             jwt = res.token
@@ -91,7 +99,7 @@ export class WelcomeComponent implements OnInit {
               Router.navigateByUrl('/app/loggedin/start'); 
         }
       }
-      xhttp.open("POST", "http://localhost:3000/user/login");//"http://localhost:3010");
+      xhttp.open("POST", GlobalConstants.APIURL+"user/login");//"http://localhost:3010");
       // xhttp.setRequestHeader("Target-URL", "http://localhost:3000/user/login");
       xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       const json = {

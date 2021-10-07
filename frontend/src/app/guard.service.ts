@@ -10,8 +10,9 @@ export class GuardService implements CanActivate {
         console.log("isauthenticated = ", isAuth)
         // return isAuth ? true :  this.router.navigate(['/']);
         if(!isAuth){
-            alert("You are not authenticated to view this page.")
-            this.router.navigate(['/']);
+            //alert("You are not authenticated to view this page.")
+            console.log("You are not authenticated to view this page.")
+            this.router.navigateByUrl('/app/welcome');  
         }
         return isAuth;
     }

@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { HttpClient } from '@angular/common/http';
 import { JWT, response } from '../jwt';
 import { decodedjwt } from '../decodedjwt';
+import { GlobalConstants } from '../common/global-constants';
 
 var res: response;
 @Component({
@@ -119,11 +120,12 @@ export class SignupComponent implements OnInit {
                 sessionStorage.setItem('userid',Decjwt.userID);
                 Router.navigateByUrl('/app/loggedin/start');
               }
-    
+              else 
+                alert(xhttp.status + xhttp.responseText)
           }
         }
         
-        xhttp.open("POST", "http://localhost:3000/user/signup");//"http://localhost:3010");
+        xhttp.open("POST", GlobalConstants.APIURL+"user/signup");//"http://localhost:3010");
         // xhttp.setRequestHeader("Target-URL", "http://localhost:3000/user/signup");
         xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
         // xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");

@@ -7,6 +7,7 @@ import {ActivatedRoute} from "@angular/router";
 import { Post, Posts, User } from './post';
 import { map } from 'rxjs/operators';
 import { decodedjwt } from '../decodedjwt';
+import { GlobalConstants } from '../common/global-constants';
 
 @Component({
   selector: 'app-start',
@@ -17,6 +18,7 @@ import { decodedjwt } from '../decodedjwt';
 export class StartComponent implements OnInit {
 
   @ViewChild('fileInput', {static: false}) fileInput:ElementRef;
+  public APIURL: string = GlobalConstants.APIURL;
   public commentForm: FormGroup;
   postId = new FormControl('', [ ]);
   _owner_comm = new FormControl('', [ ]);
@@ -53,6 +55,11 @@ export class StartComponent implements OnInit {
   uploadedImage;
 
   async ngOnInit() {
+    console.log(sessionStorage.getItem('token'))
+    this.decjwt = JSON.parse(JSON.stringify(dec_token(sessionStorage.getItem('token'))));
+    console.log(this.decjwt)
+
+    sessionStorage.setItem('userid',this.decjwt.userID);
     console.log(sessionStorage.getItem('name'))
     console.log(sessionStorage.getItem('userid'))
     console.log(
@@ -211,7 +218,7 @@ export class StartComponent implements OnInit {
         }
       }
       
-      xhttp.open("POST", "http://localhost:3000/startpage/post");
+      xhttp.open("POST", GlobalConstants.APIURL+"startpage/post");
       // xhttp.setRequestHeader("Content-Type", undefined);
       xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
       xhttp.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -312,13 +319,14 @@ export class StartComponent implements OnInit {
       xhttp.onreadystatechange = function() {
         if (xhttp.readyState == XMLHttpRequest.DONE) {
           // alert(xhttp.status + xhttp.response); 
-          if(xhttp.status == 200)
+          if(xhttp.status == 200){
+            alert("Liked post");
             window.location.reload();
-          else
+          }else
             alert(xhttp.status + xhttp.response); 
         }
       }
-      xhttp.open("POST", "http://localhost:3000/startpage/post/like");//"http://localhost:3010");
+      xhttp.open("POST", GlobalConstants.APIURL+"startpage/post/like");//"http://localhost:3010");
       // xhttp.setRequestHeader("Target-URL", "http://localhost:3000/startpage/post/like");
       // xhttp.send(formData);
       xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -368,13 +376,15 @@ export class StartComponent implements OnInit {
         if (xhttp.readyState == XMLHttpRequest.DONE) {
           // alert(xhttp.status + xhttp.response); 
           // window.location.reload();
-          if(xhttp.status == 201)
+          if(xhttp.status == 201){
+            alert("Comment posted"); 
             window.location.reload();
+          }
           else
             alert(xhttp.status + xhttp.response); 
         }
       }
-      xhttp.open("POST", "http://localhost:3000/startpage/post/comment/"+ this.commentForm.controls['postId'].value );//"http://localhost:3010");
+      xhttp.open("POST", GlobalConstants.APIURL+"startpage/post/comment/"+ this.commentForm.controls['postId'].value );//"http://localhost:3010");
       // xhttp.setRequestHeader("Target-URL", "http://localhost:3000/startpage/post/comment/"+ this.commentForm.controls['postId'].value );
       // xhttp.send(formData);
       xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");

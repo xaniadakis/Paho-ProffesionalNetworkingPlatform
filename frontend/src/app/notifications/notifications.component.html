@@ -18,7 +18,7 @@
             </main>
             <div *ngFor="let request of reqs;">
                 <div class="container darker" >
-                    <img id="avatar" src="http://localhost:3000/{{request._owner_name.user_Image}}" alt="Avatar" class="left" width="50" height="50"><p> O <b>{{request._owner_name.name}} {{request._owner_name.surname}}</b> σας έκανε αίτημα φιλίας.</p>
+                    <img id="avatar" src="{{APIURL}}{{request._owner_name.user_Image}}" alt="Avatar" class="left" width="50" height="50"><p> O <b>{{request._owner_name.name}} {{request._owner_name.surname}}</b> σας έκανε αίτημα φιλίας.</p>
                     <form [formGroup]="addForm" (ngSubmit)="setID(request._id); acceptRequest();" style="display: inline;">
                         <input class="mybutton" type="submit" value="Aποδοχή">
                     </form>

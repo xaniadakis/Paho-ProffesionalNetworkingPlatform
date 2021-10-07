@@ -7,6 +7,7 @@ import {ActivatedRoute} from "@angular/router";
 import { Posting, Postings, User } from './posting';
 import { map } from 'rxjs/operators';
 import { decodedjwt } from '../decodedjwt';
+import { GlobalConstants } from '../common/global-constants';
 
 @Component({
   selector: 'app-postings',
@@ -41,6 +42,7 @@ export class PostingsComponent implements OnInit {
 
   comment;
 
+  public APIURL: string = GlobalConstants.APIURL;
 
   public submitted = false;
   constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient, private activatedRoute: ActivatedRoute) {}
@@ -213,7 +215,7 @@ export class PostingsComponent implements OnInit {
         }
       }
       
-      xhttp.open("POST", "http://localhost:3000/postings");
+      xhttp.open("POST", GlobalConstants.APIURL+"postings");
       // xhttp.setRequestHeader("Content-Type", undefined);
       // xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
       // xhttp.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -320,7 +322,7 @@ export class PostingsComponent implements OnInit {
             alert(xhttp.status + xhttp.response); 
         }
       }
-      xhttp.open("POST", "http://localhost:3000/postings/like");//"http://localhost:3010");
+      xhttp.open("POST", GlobalConstants.APIURL+"postings/like");//"http://localhost:3010");
       // xhttp.setRequestHeader("Target-URL", "http://localhost:3000/startpage/posting/like");
       // xhttp.send(formData);
       xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -376,7 +378,7 @@ export class PostingsComponent implements OnInit {
             alert(xhttp.status + xhttp.response); 
         }
       }
-      xhttp.open("POST", "http://localhost:3000/postings/comment/"+ this.commentForm.controls['postingId'].value );//"http://localhost:3010");
+      xhttp.open("POST", GlobalConstants.APIURL+"postings/comment/"+ this.commentForm.controls['postingId'].value );//"http://localhost:3010");
       // xhttp.setRequestHeader("Target-URL", "http://localhost:3000/startpage/posting/comment/"+ this.commentForm.controls['postingId'].value );
       // xhttp.send(formData);
       xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");

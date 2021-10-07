@@ -4,12 +4,14 @@ import { Request } from './request';
 import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
+import { GlobalConstants } from '../common/global-constants';
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
   styleUrls: ['./notifications.component.css']
 })
 export class NotificationsComponent implements OnInit {
+  public APIURL: string = GlobalConstants.APIURL;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient, private activatedRoute: ActivatedRoute) { }
   reqs: Array<Request>;
@@ -58,7 +60,7 @@ export class NotificationsComponent implements OnInit {
             window.location.reload();
         }
       }
-      xhttp.open("PUT", "http://localhost:3000/requests/accept/"+this.addForm.controls['reqId'].value);//"http://localhost:3010");
+      xhttp.open("PUT", GlobalConstants.APIURL+"requests/accept/"+this.addForm.controls['reqId'].value);//"http://localhost:3010");
       // xhttp.setRequestHeader("Target-URL", "http://localhost:3000/settings/mail");
       xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       // xhttp.send(formData);
@@ -85,7 +87,7 @@ export class NotificationsComponent implements OnInit {
             window.location.reload();
         }
       }
-      xhttp.open("DELETE", "http://localhost:3000/requests/decline/"+this.addForm.controls['reqId'].value);//"http://localhost:3010");
+      xhttp.open("DELETE", GlobalConstants.APIURL+"requests/decline/"+this.addForm.controls['reqId'].value);//"http://localhost:3010");
       // xhttp.setRequestHeader("Target-URL", "http://localhost:3000/settings/mail");
       xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       // xhttp.send(formData);

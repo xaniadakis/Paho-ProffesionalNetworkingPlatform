@@ -20,33 +20,44 @@ const settingsRoute = require('./api/routes/settings.js');
 const chatRoute = require('./api/routes/chat.js');
 const requestsRoute = require('./api/routes/requests.js');
 const personalInfoRoute = require('./api/routes/personalInfo.js');
+const { MongoClient } = require('mongodb');
 
 
 mongoose.connect(
-    process.env.DATABASE,
+    process.env.TACODATABASE,
     { useNewUrlParser: true ,useUnifiedTopology: true, useCreateIndex: true})
+
 
 app.use(cors({
     origin: "*"
 }))
 
 app.use(morgan('dev'));
-app.use('/uploads' , express.static('uploads'));
+app.use('/api/uploads' , express.static('uploads'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // TODO : put auth middleware
 
-app.use('/requests' , requestsRoute);
-app.use('/welcome' , welocomeRoute);
-app.use('/user' , userRoute );
+app.use('/api/requests' , requestsRoute);
+app.use('/api/welcome' , welocomeRoute);
+app.use('/api/user' , userRoute );
 // app.use('/startpage', startpageRoute);
+<<<<<<< HEAD
 app.use('/network', networkRoute);
 app.use('/startpage', auth , startpageRoute);
 app.use('/postings', postingsRoute);
 app.use('/settings', settingsRoute);
 app.use('/chat', chatRoute);
 app.use('/personalInfo', personalInfoRoute);
+=======
+app.use('/api/network', networkRoute);
+app.use('/api/startpage', auth , startpageRoute);
+app.use('/api/postings', postingsRoute);
+app.use('/api/settings', settingsRoute);
+app.use('/api/chat', chatRoute);
+app.use('/api/personalInfo', personalInfoRoute);
+>>>>>>> fc1a82707c0b9b071cc5890d54bd5d5c021d43fb
 
 // const sendMail = (user, callback) => {
 //     const transporter = nodemailer.createTransport({

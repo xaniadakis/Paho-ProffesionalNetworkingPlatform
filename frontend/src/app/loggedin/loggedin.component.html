@@ -25,13 +25,12 @@
                     <!-- <br> -->
                     <!-- &nbsp; -->
                     <form method="get" action="app/loggedin/start" style="display: inline;">
-                        <input type="image" src="../assets/turtle.png" width="120" height="46"/>
+                        <input type="image" src="../assets/turtlelogocropped.jpg" width="120" height="46"/>
                     </form>
                 </div>
                 <div id="header-right">
                     <form [formGroup]="Form" (ngSubmit)="onLogout();" style="display: inline;">
-                    <!-- <form (submit)="onLogout();" style="display: inline;"> -->
-                        <button class="button corners" mat-raised-button color="primary" >Έξοδος</button>
+                        <a (click)="onLogout();">Έξοδος</a>
                     </form>
                     <!-- <form (submit)="onLogout()" style="display: inline;">
                         <input class="logo" type="image" src="../../assets/login-google-account-computer-icons-user-png-favpng-ZwgqcU6LVRjJucQ9udYpX00qa-removebg-preview.png" width="35" height="35" />
@@ -39,28 +38,28 @@
                 </div>
                 <div id="header-middle">
                     <form method="get" action="app/loggedin/start" style="display: inline;">
-                        <button class="button corners" mat-raised-button color="primary" >Αρχική Σελίδα</button>&nbsp;
+                        <a href="app/loggedin/start">Αρχική Σελίδα</a>&nbsp;
                     </form>
                     <form method="get" action="app/loggedin/network" style="display: inline;">
-                        <button class="button corners" mat-raised-button color="primary" >Δίκτυο</button>&nbsp;
+                        <a href="app/loggedin/network" type="submit">Δίκτυο</a>&nbsp;
                     </form>
                     <form method="get" action="app/loggedin/postings" style="display: inline;">
-                        <button class="button corners" mat-raised-button color="primary" >Αγγελίες</button>&nbsp;
+                        <a href="app/loggedin/postings">Αγγελίες</a>&nbsp;
                     </form>
                     <form method="get" action="app/loggedin/chat" style="display: inline;">
-                        <button class="button corners" mat-raised-button color="primary" >Συζητήσεις</button>&nbsp;
+                        <a href="app/loggedin/chat">Συζητήσεις</a>&nbsp;
                     </form>
                     <form method="get" action="app/loggedin/notifications" style="display: inline;">
-                        <button class="button corners" mat-raised-button color="primary" >Ειδοποιήσεις</button>&nbsp;
+                        <a href="app/loggedin/notifications">Ειδοποιήσεις</a>&nbsp;
                     </form>
                     <form method="get" action="app/loggedin/personal-info" style="display: inline;">
-                        <button class="button corners" mat-raised-button color="primary" >Προσωπικά Στοιχεία</button>&nbsp;
+                        <a href="app/loggedin/personal-info">Προσωπικά Στοιχεία</a>&nbsp;
                     </form>
                     <form method="get" action="app/loggedin/settings" style="display: inline;">
-                        <button class="button corners" mat-raised-button color="primary" >Ρυθμίσεις</button>
+                        <a href="app/loggedin/settings">Ρυθμίσεις</a>
                     </form>
                     <!-- <form method="get" action="app/loggedin/settings" style="display: inline;">
-                        <button class="button corners" mat-raised-button color="primary" >Ρυθμίσεις</button>
+                        <a>Ρυθμίσεις</a>
                     </form> -->
                 </div>
             </div> 

@@ -24,16 +24,16 @@
                 <ul>
                     <li><br>
                         <form method="get" action="app/loggedin/personal-info" style="display: inline;">
-                        <input class="logo" type="image" src="http://localhost:3000/{{myImage}}" width="100" height="100" />
+                        <input class="logo" type="image" src="{{APIURL}}{{myImage}}" width="100" height="100" />
                     </form>
                     <br><br>
                         Καλωσήρθες, <div [innerHTML]="username"> </div>
                         <!-- {{username}}! -->
                     <br><br>
                     </li>
-                    <li> <form method="get" action="app/loggedin/network" style="display: inline;">
+                    <!-- <li> <form method="get" action="app/loggedin/network" style="display: inline;">
                         <button class="trbutton" mat-raised-button color="primary" >Δίκτυο</button>&nbsp;
-                    </form></li>
+                    </form></li> -->
                 </ul> 
             </div>
         </div> 
@@ -41,7 +41,7 @@
             <br><br>
             <form [formGroup]="postForm" (ngSubmit)="newPost()">
                 <div class="postdiv">
-                    <img id="avatar" src="http://localhost:3000/{{myImage}}" width="50" height="50">
+                    <img id="avatar" src="{{APIURL}}{{myImage}}" width="50" height="50">
                     &nbsp; <input type="text" placeholder="Γράψτε κάτι.." id="post" formControlName="text"/>
                 </div>
                 <br>
@@ -81,7 +81,7 @@
                 <!-- {{posts}} -->
                 <div *ngFor="let post of posts">
                     <div class="container darker">
-                        <img id="avatar" src="http://localhost:3000/{{post._owner_name.user_Image}}" alt="Avatar" class="left"><p><b>{{post._owner_name.name}} {{post._owner_name.surname}}  
+                        <img id="avatar" src="{{APIURL}}{{post._owner_name.user_Image}}" alt="Avatar" class="left"><p><b>{{post._owner_name.name}} {{post._owner_name.surname}}  
                             <!-- <div *ngIf="isActive(post._owner_name.is_active); else notActive">
                                 <span class="greendot"></span>
                             </div> -->
@@ -96,7 +96,7 @@
                         <br>
                         <div *ngIf="isNotBlack(post.post_Image);"> 
                             <div class="fill">
-                                <img id="post_Image" src="http://localhost:3000/{{post.post_Image}}" alt="Cannot display image">
+                                <img id="post_Image" src="{{APIURL}}{{post.post_Image}}" alt="Cannot display image">
                             </div>  
                         </div>        
                         <br>

@@ -4,6 +4,7 @@ import { User } from './user';
 import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
+import { GlobalConstants } from '../common/global-constants';
 
 @Component({
   selector: 'app-personal-info',
@@ -169,7 +170,7 @@ export class PersonalInfoComponent implements OnInit {
             window.location.reload();
         }
       }
-      xhttp.open("PATCH", "http://localhost:3000/personalInfo/"+sessionStorage.getItem('userid'));//"http://localhost:3010");
+      xhttp.open("PATCH", GlobalConstants.APIURL+"personalInfo/"+sessionStorage.getItem('userid'));//"http://localhost:3010");
       // xhttp.setRequestHeader("Target-URL", "http://localhost:3000/settings/mail");
       xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       // xhttp.send(formData);

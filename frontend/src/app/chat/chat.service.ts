@@ -1,12 +1,13 @@
 import { Injectable } from "@angular/core";
 import * as io from 'socket.io-client';
 import { Observable } from "rxjs";
+import { GlobalConstants } from "../common/global-constants";
  
 @Injectable()
 
 export class ChatService{
 
-    private socket =  io.io('http://localhost:3000', { query: { user_name: sessionStorage.getItem("name") }});  
+    private socket =  io.io(GlobalConstants.SOCKETURL, { query: { user_name: sessionStorage.getItem("name") }});  
 
     write(message, username){
         this.socket.emit('message',message);
