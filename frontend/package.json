@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.config.json --host 192.168.1.16 --ssl true",
-    "build": "ng build",
+    "start": "ng serve --proxy-config proxy.config.json --host 0.0.0.0 --ssl true",
+    "build": "ng build --prod --base-href='/'",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
