@@ -6,6 +6,7 @@ import { throwError } from "rxjs";
 import { Router } from "@angular/router";
 import { jwt } from './welcome/welcome.component';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { GlobalConstants } from './common/global-constants';
 
 
 @Injectable({
@@ -22,7 +23,7 @@ export class AuthenticationService {
     }
 
     cors_proxy = "http://localhost:3010";
-    url = "http://localhost:3000/startpage/post/getallposts";
+    url = GlobalConstants.APIURL+"startpage/post/getallposts";
 
     private handleError(error: HttpErrorResponse) {
       if (error.status === 0) {

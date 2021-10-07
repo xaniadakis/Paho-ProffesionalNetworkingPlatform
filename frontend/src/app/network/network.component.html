@@ -17,12 +17,12 @@
           <br><br>
           <form action="/action_page.php" autocomplete="off">
               <div class="postdiv">
-                <img id="avatar" src="http://localhost:3000/{{myImage}}" width="50" height="50">
-                &nbsp; <input type="text" placeholder="Ανάζήτηση.." id="post"/>
+                <img id="avatar" src="{{APIURL}}{{myImage}}" width="50" height="50">
+                &nbsp; <input type="text" placeholder="Αναζήτηση.." id="post"/>
               </div>
               <br>
               <div class="postdiv">
-                  <input class="upload1" type="submit" value="Ανάζήτηση">
+                  <input class="upload1" type="submit" value="Αναζήτηση">
               </div>
           </form> 
           <!-- <form autocomplete="off" action="/action_page.php">
@@ -34,14 +34,18 @@
           <br>
             <!-- <img src="../assets/search1.png" height=20 width=20 >
             <input type="text" name="search" placeholder="Search..">  -->
-            <div class="row"> 
+            <!-- <div class="row">  -->
             <div *ngFor="let friend of friends;  let i=index">
-              <div *ngIf="i<=4">
-                <div class="flip-card column">
+              <!-- <div *ngIf="((i % 4) == 0)">
+                <br><br><br><br><br><br><br><br>
+              </div> -->
+              <div class="cent">
+              <div class="column">
+                <div class="flip-card">
                   <div class="flip-card-inner">
                     <div class="flip-card-front">
                       <div *ngIf="isNotBlack(friend.user_Image);"> 
-                          <img class="imgb" src="http://localhost:3000/{{friend.user_Image}}" alt="Avatar" style="width:290px;height:290px;">
+                          <img class="imgb" src="{{APIURL}}{{friend.user_Image}}" alt="Avatar" style="width:290px;height:290px;">
                       </div> 
                       <p>{{friend.name}} {{friend.surname}} 
                         <ng-template [ngIf]="isActive(friend.is_active)">
@@ -68,75 +72,10 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row"> 
-            <div *ngFor="let friend of friends;  let i=index">
-              <div *ngIf="i>5 && i<=10;">
-                <div class="flip-card column">
-                  <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                      <div *ngIf="isNotBlack(friend.user_Image);"> 
-                        <img class="imgb" src="http://localhost:3000/{{friend.user_Image}}" alt="Avatar" style="width:290px;height:290px;">
-                      </div>                       
-                      <p>{{friend.name}} {{friend.surname}} 
-                        <ng-template [ngIf]="isActive(friend.is_active)">
-                          <span class="greendot"></span>
-                      </ng-template>
-                      <ng-template [ngIf]="notActive(friend.is_active)">
-                          <span class="reddot"></span>
-                      </ng-template>
-                      </p>                    </div>
-                    <div class="flip-card-back">
-                      <div class="container">
-                        <h2>{{friend.name}} {{friend.surname}}</h2>
-                        <p class="title">{{friend.job_description}}</p>
-                        <!-- <p>{{friend.}}</p> -->
-                        <p>{{friend.email}}</p>
-                        <form [formGroup]="addForm" (ngSubmit)="setID(friend._id); sendRequest();" >
-                          <!-- <input class="button imgbutton" type="submit" type="submit" value="Προσθήκη Φίλου"> -->
-                          <button type="submit" class="button imgbutton">Προσθήκη Φίλου</button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <!-- </div> -->
             </div>
-          </div>
-          <div class="row"> 
-            <div *ngFor="let friend of friends;  let i=index">
-              <div *ngIf="i>10 && i<=15;">
-                <div class="flip-card column">
-                  <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                      <div *ngIf="isNotBlack(friend.user_Image);"> 
-                        <img class="imgb" src="http://localhost:3000/{{friend.user_Image}}" alt="Avatar" style="width:290px;height:290px;">
-                      </div>                       
-                      <p>{{friend.name}} {{friend.surname}} 
-                        <ng-template [ngIf]="isActive(friend.is_active)">
-                          <span class="greendot"></span>
-                        </ng-template>
-                        <ng-template [ngIf]="notActive(friend.is_active)">
-                            <span class="reddot"></span>
-                        </ng-template>
-                      </p>                    </div>
-                    <div class="flip-card-back">
-                      <div class="container">
-                        <h2>{{friend.name}} {{friend.surname}}</h2>
-                        <p class="title">{{friend.job_description}}</p>
-                        <!-- <p>{{friend.}}</p> -->
-                        <p>{{friend.email}}</p>
-                        <form [formGroup]="addForm" (ngSubmit)="setID(friend._id); sendRequest();" >
-                          <!-- <input class="button imgbutton" type="submit" type="submit" value="Προσθήκη Φίλου"> -->
-                          <button type="submit" class="button imgbutton">Προσθήκη Φίλου</button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <!-- </div> -->
+          
              <!-- <div class="row">  -->
                  
 

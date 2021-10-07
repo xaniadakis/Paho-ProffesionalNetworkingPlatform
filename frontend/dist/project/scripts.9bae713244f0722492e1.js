@@ -1,0 +1,1 @@
+function myFunction(){var t=document.getElementById("myInput");t.type="password"===t.type?"text":"password"}function greet(){alert("Pop up")}

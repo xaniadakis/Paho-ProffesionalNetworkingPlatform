@@ -26,6 +26,8 @@ import { AuthorizationInterceptorService } from './auth.inter.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { GuardService } from './guard.service';
 import { ChatService } from './chat/chat.service';
+import { EmailService } from './email.service'
+import { Title } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { ChatService } from './chat/chat.service';
     NetworkComponentResolver,
     InfoResolver, 
     FriendComponentResolver,
+    EmailService,
+    Title,
     {
       provide: JwtHelperService,
       useFactory: () => new JwtHelperService()

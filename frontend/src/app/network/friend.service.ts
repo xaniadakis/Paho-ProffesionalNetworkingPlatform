@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
  
 import { Friend } from './friend';
 import { jwt } from '../welcome/welcome.component'
+import { GlobalConstants } from '../common/global-constants';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ import { jwt } from '../welcome/welcome.component'
 })
 export class FriendService {
     cors_proxy = "http://localhost:3010";
-    url = "http://localhost:3000/network/"+sessionStorage.getItem('userid');
+    url = GlobalConstants.APIURL+"network/"+sessionStorage.getItem('userid');
     constructor(public http: HttpClient) {}
     
     getFriends(): Observable<Array<Friend>> {

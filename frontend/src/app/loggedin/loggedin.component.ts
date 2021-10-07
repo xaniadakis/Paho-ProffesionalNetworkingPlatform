@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
+import { GlobalConstants } from '../common/global-constants';
 
 @Component({
   selector: 'app-loggedin',
@@ -19,7 +20,7 @@ export class LoggedinComponent implements OnInit {
   onLogout(){
     var xhttp = new XMLHttpRequest();
     var Router = this.router;
-    xhttp.open("PATCH", "http://localhost:3000/user/logout/"+sessionStorage.getItem('userid'));
+    xhttp.open("PATCH", GlobalConstants.APIURL+"user/logout/"+sessionStorage.getItem('userid'));
     // alert("logging!")
       // xhttp.setRequestHeader("Target-URL", "http://localhost:3000/settings/mail");
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");

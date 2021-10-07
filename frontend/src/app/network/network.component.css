@@ -55,7 +55,7 @@ h1 {
 
 .button {
     /* background-color: #ffffff; */
-    background-color: Transparent;
+    background-color: #ffffffdc;
     background-repeat:no-repeat;
     border: 1.7px solid #000000;
     color: rgb(0, 0, 0);
@@ -87,8 +87,31 @@ img {
 .column {
     float: left;
     width: 20%;
+    height: 320px;
     margin: 10px;
 }
+
+.cent {
+    float: center;
+}
+
+@media screen and (max-width: 1700px) {
+    .column {
+        float: left;
+        width: 30%;
+        margin: 10px;      
+        height: 320px;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .column {
+        float: left;
+        width: 100%;
+        margin: 10px;      
+        height: 320px;
+    }
+  }
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -125,6 +148,16 @@ img {
 }
 
 /*  */
+#post {
+    border-radius: 15px 50px 30px;
+    border: hidden; 
+    background: #ffffffdc;
+    padding: 23px; 
+    width: 500px;
+    height: 15px; 
+    font-family: 'Libre Baskerville', serif;
+    font-size:16;
+  }
 
 .row {
     height: 350px;
@@ -154,9 +187,10 @@ input[type=text]:focus , #post.focus {
 /*  */
 
 .flip-card {
-    background-color: transparent;
-    width: 290px;
-    height: 200px;
+    background: #ffffffdc;
+    /* background-color: transparent; */
+    /* width: 290px;
+    height: 200px; */
     margin-bottom: 20px;
     perspective: 1000px; 
   }
@@ -183,7 +217,8 @@ input[type=text]:focus , #post.focus {
   }
   
   .flip-card-front {
-    background-color: transparent;
+    background: #ffffffdc;
+    /* background-color: transparent; */
     color: black;
   }
   
@@ -191,7 +226,7 @@ input[type=text]:focus , #post.focus {
     background-color: #4c6585;
     color: white;
     transform: rotateY(180deg);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    /* border: 1px solid rgba(255, 255, 255, 0.5); */
 
   }
 
@@ -216,7 +251,7 @@ input[type=text]:focus , #post.focus {
     outline: none;
     border-radius: 6px;
     box-shadow: 0 3px #999;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: #ffffffdc;
 }  
 
 .upload1:hover , .upload:hover{background-color: #4c6585}

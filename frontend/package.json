@@ -1,10 +1,10 @@
 {
-  "name": "project",
+  "name": "taco",
   "proxy": "http://localhost:3000",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 0.0.0.0",
+    "start": "ng serve --proxy-config proxy.config.json --host 192.168.1.16 --ssl true",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -39,7 +39,7 @@
     "@angular/compiler-cli": "~12.1.1",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
-    "jasmine-core": "~3.7.0",
+    "jasmine-core": "~3.8.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.0.3",

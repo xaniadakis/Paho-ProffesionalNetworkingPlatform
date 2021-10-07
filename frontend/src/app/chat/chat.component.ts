@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Friend } from '../network/friend'
 import { ChatService } from './chat.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
+import { GlobalConstants } from '../common/global-constants';
 
 @Component({
   selector: 'app-chat',
@@ -13,6 +14,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms"
   providers: [ChatService]
 })
 export class ChatComponent implements OnInit {
+  public APIURL: string = GlobalConstants.APIURL;
   messages: Array<{user_name:String,message:String}> = [];
   timemessages: Array<{user_name:String,message:String, time:String}> = [];
   friends: Array<Friend> = [];

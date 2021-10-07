@@ -19,7 +19,7 @@
               <div *ngFor="let friend of friends">
                 <li id="item">
                   <ng-template [ngIf]="isNotBlack(friend.user_Image)">
-                    <img id="avatar" src="http://localhost:3000/{{friend.user_Image}}" alt="no image">
+                    <img id="avatar" src="{{APIURL}}{{friend.user_Image}}" alt="no image">
                   </ng-template> 
                   <!-- <input type="button" {{friend.name}} {{friend.surname}}> -->
                   <button id="friendbutton" type="button" onclick="myFunction()">{{friend.name}} {{friend.surname}}</button>

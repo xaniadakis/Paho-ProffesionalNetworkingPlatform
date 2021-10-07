@@ -65,7 +65,7 @@ h1 {
 
 .button {
   /* background-color: #ffffff; */
-  background-color: Transparent;
+  background-color: #ffffffdc;
   background-repeat:no-repeat;
   border: 1px solid rgba(0, 0, 0,0.65);
   color: rgb(0, 0, 0);
@@ -141,7 +141,7 @@ border-radius: 5px;
     height: 48;
     border:transparent; 
     border-radius: 6px;
-    background: rgba(255, 255, 255, 0.5);
+    background: #ffffffdc;
     border: 1px solid rgba(221, 220, 220, 0.9); 
     box-shadow: 0 3px rgba(145, 144, 144, 0.6); 
     font-family: 'Libre Baskerville', serif;
@@ -153,7 +153,7 @@ border-radius: 5px;
   margin-left: 9px;
   /* border-radius: 50%; */
   border: 1px solid rgba(58,91,162,0.7);
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: #ffffffdc;
   display: inline-block;
   /* padding: 15px 25px; */
   cursor: pointer;
@@ -169,11 +169,12 @@ border-radius: 5px;
 } 
 
 .upload5 {
-    padding: 5px 10px;
+    padding: 10px 15px;
     margin-left: 9px;
     /* border-radius: 50%; */
-    border: 1px solid rgba(58,91,162,0.7); 
-    background-color: rgba(255, 255, 255, 0.4);
+    /* border: 1px solid rgba(58,91,162,0.7);  */
+    border: hidden;
+    background-color: #ffffffdc;
     display: inline-block;
     /* padding: 15px 25px; */
     cursor: pointer;
@@ -196,7 +197,7 @@ border-radius: 5px;
   padding: 1px 1px ;
   margin-left: 5px;
   margin-bottom: 3px;
-  background: rgba(235, 233, 233, 0.5);
+  background: #ffffffdc;
   border: 1px solid rgba(221, 220, 220, 0.9); 
 }
 
@@ -206,7 +207,7 @@ border-radius: 5px;
   margin-bottom: 1px;
   font-size: 16px;
   margin-bottom: 5px;
-  background: rgba(235, 233, 233, 0.5);
+  background: #ffffffdc;
   border: 1px solid rgba(58,91,162,0.7);
   font-family: 'Libre Baskerville', serif;
 }
@@ -220,15 +221,14 @@ border-radius: 5px;
 }
 
 #post {
-    border-radius: 15px 50px 30px;
-    border: 1px solid rgba(58,91,162,0.7); 
-    background: rgba(255, 255, 255, 0.6);
-    padding: 23px; 
-    width: 500px;
-    height: 15px; 
-    font-family: 'Libre Baskerville', serif;
-    font-size:16;
-
+  border-radius: 15px 50px 30px;
+  border: hidden; 
+  background: #ffffffdc;
+  padding: 23px; 
+  width: 500px;
+  height: 15px; 
+  font-family: 'Libre Baskerville', serif;
+  font-size:16;
 }
 
 #post1 {

@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
  
 import { User } from './user';
 import { jwt } from '../welcome/welcome.component'
+import { GlobalConstants } from '../common/global-constants';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ import { jwt } from '../welcome/welcome.component'
 })
 export class InfoService {
     // cors_proxy = "http://localhost:3010";
-    url = "http://localhost:3000/personalInfo/"+sessionStorage.getItem("userid");
+    url = GlobalConstants.APIURL+"personalInfo/"+sessionStorage.getItem("userid");
     constructor(public http: HttpClient) {}
     
     getInfo(): Observable<User> {

@@ -4,6 +4,7 @@ import { JWT } from '../jwt';
 import { catchError } from 'rxjs/operators';
 import { throwError } from "rxjs";
 import { jwt } from './welcome.component'
+import { GlobalConstants } from '../common/global-constants';
 
 
 @Injectable({
@@ -17,7 +18,7 @@ export class JWTSender {
     }
 
     cors_proxy = "http://localhost:3010";
-    url = "http://localhost:3000/startpage/";
+    url = GlobalConstants.APIURL+"startpage/";
 
     private handleError(error: HttpErrorResponse) {
       if (error.status === 0) {
