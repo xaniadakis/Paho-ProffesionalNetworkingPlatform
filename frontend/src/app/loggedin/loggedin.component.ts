@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
 import { GlobalConstants } from '../common/global-constants';
+import { Inject }  from '@angular/core';
 
 @Component({
   selector: 'app-loggedin',
@@ -41,4 +42,5 @@ export class LoggedinComponent implements OnInit {
     xhttp.send();
     // alert("logging out!")
   }
+
 }

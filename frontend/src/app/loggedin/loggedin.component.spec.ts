@@ -1,3 +1,4 @@
+import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoggedinComponent } from './loggedin.component';
@@ -23,3 +24,4 @@ describe('LoggedinComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
