@@ -72,17 +72,9 @@ export class WelcomeComponent implements OnInit {
             // alert(xhttp.response);
             // alert(JSON.parse(sessionStorage.getItem("token")))
             if(xhttp.status != 200){
-<<<<<<< HEAD
               alert("Wrong email/password");
               Router.navigateByUrl('/app/welcome'); 
             }
-=======
-	      // alert(xhttp.response);
-              alert("Wrong email/password");
-              Router.navigateByUrl('/app/welcome'); 
-	    }
-
->>>>>>> fc1a82707c0b9b071cc5890d54bd5d5c021d43fb
             console.log(xhttp.response);
             res = JSON.parse(xhttp.response) 
             jwt = res.token
