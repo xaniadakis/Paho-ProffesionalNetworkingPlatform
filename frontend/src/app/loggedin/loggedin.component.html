@@ -29,42 +29,73 @@
                     </form>
                 </div>
                 <div id="header-right">
-                    <form [formGroup]="Form" (ngSubmit)="onLogout();" style="display: inline;">
+                    <!-- <form [formGroup]="Form" (ngSubmit)="onLogout();" style="display: inline;">
                         <a (click)="onLogout();">Έξοδος</a>
-                    </form>
+                    </form> -->
                     <!-- <form (submit)="onLogout()" style="display: inline;">
                         <input class="logo" type="image" src="../../assets/login-google-account-computer-icons-user-png-favpng-ZwgqcU6LVRjJucQ9udYpX00qa-removebg-preview.png" width="35" height="35" />
                     </form>  -->
+                    <div class="dropdown">
+                        <button class="dropbtn" > ☰  Πλοήγηση </button>
+                        <div class="dropdown-content" >
+                            <!-- <form method="get" action="app/loggedin/start" style="display: inline;"> -->
+                                <a href="app/loggedin/start" class="dropitem">Αρχική Σελίδα</a>&nbsp;
+                            <!-- </form> -->
+                            <!-- <form method="get" action="app/loggedin/network" style="display: inline;"> -->
+                                <a href="app/loggedin/network" type="submit"class="dropitem">Δίκτυο</a>&nbsp;
+                            <!-- </form>
+                            <form method="get" action="app/loggedin/postings" style="display: inline;"> -->
+                                <a href="app/loggedin/postings" class="dropitem">Αγγελίες</a>&nbsp;
+                            <!-- </form>
+                            <form method="get" action="app/loggedin/chat" style="display: inline;"> -->
+                                <a href="app/loggedin/chat" class="dropitem">Συζητήσεις</a>&nbsp;
+                            <!-- </form>
+                            <form method="get" action="app/loggedin/notifications" style="display: inline;"> -->
+                                <a href="app/loggedin/notifications" class="dropitem">Ειδοποιήσεις</a>&nbsp;
+                            <!-- </form>
+                            <form method="get" action="app/loggedin/personal-info" style="display: inline;"> -->
+                                <a href="app/loggedin/personal-info" class="dropitem">Προσωπικά Στοιχεία</a>&nbsp;
+                            <!-- </form>
+                            <form method="get" action="app/loggedin/settings" style="display: inline;"> -->
+                                <a href="app/loggedin/settings" class="dropitem">Ρυθμίσεις</a>
+                            <!-- </form>
+                            <form [formGroup]="Form" (ngSubmit)="onLogout();" style="display: inline;"> -->
+                                <a (click)="onLogout();" class="dropitem">Έξοδος</a>
+                            <!-- </form> -->
+                        </div>
+                    </div>
                 </div>
-                <div id="header-middle">
-                    <form method="get" action="app/loggedin/start" style="display: inline;">
-                        <a href="app/loggedin/start">Αρχική Σελίδα</a>&nbsp;
-                    </form>
-                    <form method="get" action="app/loggedin/network" style="display: inline;">
-                        <a href="app/loggedin/network" type="submit">Δίκτυο</a>&nbsp;
-                    </form>
-                    <form method="get" action="app/loggedin/postings" style="display: inline;">
-                        <a href="app/loggedin/postings">Αγγελίες</a>&nbsp;
-                    </form>
-                    <form method="get" action="app/loggedin/chat" style="display: inline;">
-                        <a href="app/loggedin/chat">Συζητήσεις</a>&nbsp;
-                    </form>
-                    <form method="get" action="app/loggedin/notifications" style="display: inline;">
-                        <a href="app/loggedin/notifications">Ειδοποιήσεις</a>&nbsp;
-                    </form>
-                    <form method="get" action="app/loggedin/personal-info" style="display: inline;">
-                        <a href="app/loggedin/personal-info">Προσωπικά Στοιχεία</a>&nbsp;
-                    </form>
-                    <form method="get" action="app/loggedin/settings" style="display: inline;">
-                        <a href="app/loggedin/settings">Ρυθμίσεις</a>
-                    </form>
+                <!-- <div id="header-middle">                   -->
+                    
                     <!-- <form method="get" action="app/loggedin/settings" style="display: inline;">
                         <a>Ρυθμίσεις</a>
                     </form> -->
-                </div>
+                <!-- </div> -->
             </div> 
             <router-outlet></router-outlet>
             <main>
+                <!-- <mat-drawer-container class="example-container">
+                    <mat-drawer #drawer [mode]="mode.value">
+                            <a href="app/loggedin/start" style="display: inline;">Αρχική Σελίδα</a>&nbsp;
+                        
+                            <a href="app/loggedin/network" style="display: inline;" type="submit">Δίκτυο</a>&nbsp;
+                       
+                            <a href="app/loggedin/postings" style="display: inline;">Αγγελίες</a>&nbsp;
+                        
+                            <a href="app/loggedin/chat" style="display: inline;">Συζητήσεις</a>&nbsp;
+                      
+                            <a href="app/loggedin/notifications" style="display: inline;">Ειδοποιήσεις</a>&nbsp;
+                        
+                            <a href="app/loggedin/personal-info" style="display: inline;">Προσωπικά Στοιχεία</a>&nbsp;
+                       
+                            <a href="app/loggedin/settings" style="display: inline;">Ρυθμίσεις</a>
+                    </mat-drawer>
+                    <mat-drawer-content>
+                        <mat-select #mode value="push"></mat-select>
+                        <button mat-raised-button (click)="drawer.toggle()"  style="float: right;">☰</button> 
+                    </mat-drawer-content>
+                </mat-drawer-container> -->
+                
             </main>    
         </div>
     </body>

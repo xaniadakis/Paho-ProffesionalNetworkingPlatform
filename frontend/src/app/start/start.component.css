@@ -235,7 +235,7 @@ border-radius: 5px;
 
 /*  sidenav */
 
-.column {
+/* .column {
     float: left;
   }
 
@@ -247,6 +247,27 @@ border-radius: 5px;
   .column.middle {
     width: 80%;
     float: right;
+  } */
+
+  @media screen and (max-width: 1500px) {
+    .sidenav {
+      visibility: hidden;
+      clear: both;
+      float: left;
+      display: none;
+    }
+    .column.side{
+      width: 0%;
+      visibility: hidden;
+      display: none;
+      clear: both;
+      float: left;
+    }
+    .column.middle, .posts{
+      width: 100%;
+      float: center;
+      margin:10px;
+    }
   }
 
 .sidenav {
@@ -300,6 +321,7 @@ border-radius: 5px;
   border-radius: 8px;
   padding: 8px;
   margin: 10px 0;
+  width:100%;
 }
 
 .darker {
@@ -353,7 +375,8 @@ color: #999;
 .column.middle {
   width: 88%;
   float: right;
-  margin-right: 18px;
+  margin:10px;
+  /* margin-right: 18px; */
 }
 
 /*  */

@@ -28,6 +28,9 @@ import { GuardService } from './guard.service';
 import { ChatService } from './chat/chat.service';
 import { EmailService } from './email.service'
 import { Title } from '@angular/platform-browser';
+// import { MatSidenavModule } from '@angular/material/sidenav';
+import { MaterialModule } from './loggedin/material.module'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 @NgModule({
   declarations: [
@@ -43,14 +46,21 @@ import { Title } from '@angular/platform-browser';
     PagenotfoundComponent,
     WelcomeComponent,
     AboutusComponent,
-    LoggedinComponent,
+    LoggedinComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MaterialModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule
+    // MatSidenavModule
     ],
+  exports: [
+    // MaterialModule,
+    // MatSidenavModule
+  ],
   providers: [
     ChatService,
     StartComponentResolver,
