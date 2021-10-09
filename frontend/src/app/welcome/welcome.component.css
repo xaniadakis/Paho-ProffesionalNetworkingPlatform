@@ -65,6 +65,20 @@ h1 {
 }
 
 
+@media screen and (max-width: 1500px) {
+  #header {
+    /* padding-top: 5px; */
+    padding: 0px;
+    /* padding-left: 10px; */
+    height: 120px;
+    /* border-bottom: 0.3px solid #d3d3d3; */
+  }
+  #logo {
+    visibility:hidden;
+    display:none;
+  }
+}
+
 .button {
     background-color: #ffffff;
     background-repeat:no-repeat;
@@ -89,6 +103,28 @@ h1 {
 .button:hover {
     background-color: #4c6585; 
     color: white;
+}
+
+.button1 {
+  background-color: #ffffff;
+  background-repeat:no-repeat;
+  border: 1px solid rgba(0, 0, 0,0.65);
+  color: rgb(0, 0, 0);
+  padding: 7px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  box-shadow: 0 3px rgba(0, 0, 0,0.4);
+
+}
+
+.button1:hover {
+  background-color: #4c6585; 
+  color: white;
 }
 
 
