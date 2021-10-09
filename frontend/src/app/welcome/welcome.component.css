@@ -23,10 +23,10 @@ body,html {
 }
 
 #header {
-    padding-top: 5px;
+    padding-top: 3px;
     padding-bottom: 0px;
     padding-left: 10px;
-    height: 57px;
+    height: 67px;
     /* border-bottom: 0.3px solid #d3d3d3; */
     overflow: auto;
     background-color: #2d2d2d;  
@@ -36,6 +36,7 @@ body,html {
 #logo {
     color: #08a3d9;
     float: left;
+    margin-left:10px;
 }
 
 #header-middle {
@@ -46,6 +47,7 @@ body,html {
 
 #header-right {
     /* width: 1000px; */
+    padding: 5px;
     float: right;
     margin-right: 20px;
     text-align: center;
@@ -65,17 +67,24 @@ h1 {
 }
 
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 700px) {
   #header {
     /* padding-top: 5px; */
     padding: 0px;
     /* padding-left: 10px; */
-    height: 120px;
+    height: 110px;
     /* border-bottom: 0.3px solid #d3d3d3; */
   }
   #logo {
     visibility:hidden;
     display:none;
+  }
+
+  .button{
+    margin: 0px;
+  }
+  .field{
+    margin: 0px;
   }
 }
 
@@ -84,7 +93,7 @@ h1 {
     background-repeat:no-repeat;
     border: 1px solid rgba(0, 0, 0,0.65);
     color: rgb(0, 0, 0);
-    padding: 7px 32px;
+    padding: 12px 40px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -188,7 +197,7 @@ h1 {
     outline-width: 0px;
   }
   h1 {
-    font-size: 30px; font-style: normal;
+    font-size: 27px; font-style: normal;
     /* font-family: 'Stick No Bills', sans-serif; */
     font-family: 'Libre Baskerville', serif;
         /* font-family: 'PT Sans', sans-serif;   */
