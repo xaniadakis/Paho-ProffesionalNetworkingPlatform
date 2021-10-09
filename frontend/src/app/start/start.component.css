@@ -18,10 +18,11 @@ body,html {
 #page {
   display: flexbox;
   height: 100vh;
-  grid-template-areas: "header header"
-                       "main  main";
-  grid-template-rows: 50px 1fr 30px;
-  grid-template-columns: 150px 1fr;
+  /* position: relative; */
+  /* grid-template-areas: "header header"
+                       "main  main"; */
+  /* grid-template-rows: 50px 1fr 30px;
+  grid-template-columns: 150px 1fr; */
 }
 
 #header {
@@ -36,9 +37,9 @@ body,html {
     /* background-color: #333; */
 }
 
-main {
+/* main {
     background-color: white; 
-}
+} */
 
 #logo {
     color: #08a3d9;
@@ -86,7 +87,6 @@ cursor: pointer;
   transition-duration: 0.4s;
   box-shadow: 0 3px rgba(0, 0, 0,0.4);
   font-family: 'Libre Baskerville', serif;
-
 }
 
 .corners {
@@ -262,12 +262,29 @@ border-radius: 5px;
       display: none;
       clear: both;
       float: left;
+      position: relative;
     }
-    .column.middle, .posts{
+    .column.middle{
       width: 100%;
-      float: center;
-      margin:10px;
+      position: relative;
+      left:0;
+      right:0;
     }
+
+    /* .column.middle, .posts{
+      display: flex;
+      z-index: 2;
+      width: 100%;
+      float: right;
+      margin:0;
+      padding:0;
+      position: absolute;
+      place-self:center;
+      justify-content: center;
+      overflow: hidden;
+      left: 0;
+      right: 0;
+    } */
   }
 
 .sidenav {
@@ -285,6 +302,14 @@ border-radius: 5px;
     text-align: center;
   }
   
+  /* .posts{
+    left:0;
+    right:0;
+    width:100%;
+    position: absolute;
+    place-self: center;
+  } */
+
   .sidenav a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
@@ -375,8 +400,8 @@ color: #999;
 .column.middle {
   width: 88%;
   float: right;
-  margin:10px;
-  /* margin-right: 18px; */
+  /* margin-right:10px; */
+  margin-right: 18px;
 }
 
 /*  */

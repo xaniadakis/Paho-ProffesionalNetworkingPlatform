@@ -19,25 +19,26 @@
         </style>
     </head>
     <body>
-        <div *ngIf="isDataAvailable;"> 
-            <div class="sidenav column side">
-                <ul>
-                    <li><br>
-                        <form method="get" action="app/loggedin/personal-info" style="display: inline;">
-                        <input class="logo" type="image" src="{{APIURL}}{{myImage}}" width="100" height="100" />
-                    </form>
-                    <br><br>
-                        Καλωσήρθες, <div [innerHTML]="username"> </div>
-                        <!-- {{username}}! -->
-                    <br><br>
-                    </li>
-                    <!-- <li> <form method="get" action="app/loggedin/network" style="display: inline;">
-                        <button class="trbutton" mat-raised-button color="primary" >Δίκτυο</button>&nbsp;
-                    </form></li> -->
-                </ul> 
-            </div>
-        </div> 
         <div id="page">
+            <div id="main">
+            <div *ngIf="isDataAvailable;"> 
+                <div class="sidenav column side">
+                    <ul>
+                        <li><br>
+                            <form method="get" action="app/loggedin/personal-info" style="display: inline;">
+                            <input class="logo" type="image" src="{{APIURL}}{{myImage}}" width="100" height="100" />
+                        </form>
+                        <br><br>
+                            Καλωσήρθες, <div [innerHTML]="username"> </div>
+                            <!-- {{username}}! -->
+                        <br><br>
+                        </li>
+                        <!-- <li> <form method="get" action="app/loggedin/network" style="display: inline;">
+                            <button class="trbutton" mat-raised-button color="primary" >Δίκτυο</button>&nbsp;
+                        </form></li> -->
+                    </ul> 
+                </div>
+            </div> 
             <br><br>
             <form [formGroup]="postForm" (ngSubmit)="newPost()">
                 <div class="postdiv">
@@ -46,28 +47,27 @@
                 </div>
                 <br>
                 <div class="postdiv">
-                        <div class="image-upload">
-                            <label for="file-input">
-                              <img class="upload" src="../../assets/photo.png" width="53" height="48"/>
-                            </label>
-                            <input id="file-input" type="file" name="post_Image" title="Upload photo" (change)="onFileChanged($event)">
-                            <!-- <input formControlName="post_Image" id="file-input" type="file" title="Upload photo"/> -->
-                        </div>
-                        &nbsp;<div class="image-upload">
-                            <label for="file-input">
-                              <img class="upload" src="../../assets/video.png" width="53" height="48"/>
-                            </label>
-                            <input formControlName="post_Video" id="file-input" type="file" />
-                        </div>
-                        &nbsp;<div class="image-upload">
-                            <label for="file-input">
-                              <img class="upload" src="../../assets/sound.png" width="53" height="48"/>
-                            </label>
-                            <input formControlName="post_Song" id="file-input" type="file" />
-                        </div>
-                        <!-- <input class="upload" img="../../assets/photo.png" type="file" id="img" name="img" accept="image/*" title="Upload photo"/>
-                        &nbsp;<input class="upload" type="image" src="../../assets/video.png" alt="Submit"  width="53" height="48" id="img" name="img" accept="video/*" title="Upload video"/>
-                        &nbsp;<input class="upload" type="image" src="../../assets/sound.png" alt="Submit"  width="48" height="48"  id="img" name="img" accept="audio/*" title="Upload soundclip"/> -->
+                    <div class="image-upload">
+                        <label for="file-input">
+                            <img class="upload" src="../../assets/photo.png" width="53" height="48"/>
+                        </label>
+                        <input id="file-input" type="file" name="post_Image" title="Upload photo" (change)="onFileChanged($event)">
+                        <!-- <input formControlName="post_Image" id="file-input" type="file" title="Upload photo"/> -->
+                    </div>
+                    &nbsp;
+                    <div class="image-upload">
+                        <label for="file-input">
+                            <img class="upload" src="../../assets/video.png" width="53" height="48"/>
+                        </label>
+                        <input formControlName="post_Video" id="file-input" type="file" />
+                    </div>
+                    &nbsp;
+                    <div class="image-upload">
+                        <label for="file-input">
+                            <img class="upload" src="../../assets/sound.png" width="53" height="48"/>
+                        </label>
+                        <input formControlName="post_Song" id="file-input" type="file" />
+                    </div>
                 </div>
                 <!-- <br> -->
                 <div class="postdiv">
@@ -75,77 +75,56 @@
                 </div>
             </form> 
             <br>
-            <div class="posts column middle">
-            <div *ngIf="isDataAvailable; else notAvailable"> 
-                <!-- Data has arrived. -->
-                <!-- {{posts}} -->
-                <div *ngFor="let post of posts">
-                    <div class="container darker">
-                        <img id="avatar" src="{{APIURL}}{{post._owner_name.user_Image}}" alt="Avatar" class="left"><p><b>{{post._owner_name.name}} {{post._owner_name.surname}}  
-                            <!-- <div *ngIf="isActive(post._owner_name.is_active); else notActive">
-                                <span class="greendot"></span>
-                            </div> -->
-                            <ng-template [ngIf]="isActive(post._owner_name.is_active)">
-                                <span class="greendot"></span>
-                            </ng-template>
-                            <ng-template [ngIf]="notActive(post._owner_name.is_active)">
-                                <span class="reddot"></span>
-                            </ng-template>
-                        </b></p>
-                        <span class="time-left">{{post.date}}</span>
-                        <br>
-                        <div *ngIf="isNotBlack(post.post_Image);"> 
-                            <div class="fill">
-                                <img id="post_Image" src="{{APIURL}}{{post.post_Image}}" alt="Cannot display image">
-                            </div>  
-                        </div>        
-                        <br>
-                        <td>{{post.text}}</td>
-                        <br>
-                        <div id="row">
-
-                            <form [formGroup]="likeForm" (ngSubmit)="setId(post._id); likePost();">
-                                <input class="upload1 upload2 upload4" type="image" src="../../assets/like.png" width="35" height="27"/>
-                            </form>
-                            <!-- <form onsubmit="setId(post._id); likePost(); return false;" id="likeForm"> -->
-                                <!-- <input type="submit" value="Submit"> -->
-
-                                <!-- <button type="submit" style="border: 0; background: transparent" form="likeForm">
-                                    <img src="../../assets/like.png" width="35" height="27" alt="submit" />
-                                </button> -->
-                                <!-- <input class="upload1 upload2 upload4" type="image" src="../../assets/like.png" width="35" height="27"/> -->
-                            <!-- </form>  -->
-                        <!-- </div> -->
-                        <!-- <div id="row"> -->
-                            <p id="like">Αρέσει σε {{post.likes}} χρήστες.</p>
-                        </div>
-                        <!-- <td>{{post.likes}}</td> -->
-                        <!-- <td>{{ setId(post._id) }} </td> -->
-                        <!-- <script>
-                            function setId(val){
-                                console.log(val);
-                            }
-                        </script> -->
-                        <form [formGroup]="commentForm" (ngSubmit)="setId(post._id); newComment();">
-                            <!-- <input type="text" formControlName="postId"  [value]="post._id" style="visibility: hidden; display:inline;"> -->
-                            <div class="postdiv" style="float:left">
-                                &nbsp; <input type="text" formControlName="text" placeholder="Γράψτε κάτι.." id="post1"/><input class="upload1 upload3" type="submit" value="Σχολιάστε">
-                            </div>
-                        </form>
-                        <br>
-                        <br>
-                        <div  *ngFor="let comment of post.ncomments">
-                            <div id="commentrow">
-                                {{comment.commentator_name}} says: <p id="comment"> {{comment.text}}</p>
+            <div class="column middle">
+                <div *ngIf="isDataAvailable; else notAvailable"> 
+                    <div class="posts">
+                        <div *ngFor="let post of posts">
+                            <div class="container darker">
+                                <img id="avatar" src="{{APIURL}}{{post._owner_name.user_Image}}" alt="Avatar" class="left"><p><b>{{post._owner_name.name}} {{post._owner_name.surname}}  
+                                    <ng-template [ngIf]="isActive(post._owner_name.is_active)">
+                                        <span class="greendot"></span>
+                                    </ng-template>
+                                    <ng-template [ngIf]="notActive(post._owner_name.is_active)">
+                                        <span class="reddot"></span>
+                                    </ng-template>
+                                </b></p>
+                                <span class="time-left">{{post.date}}</span>
+                                <br>
+                                <div *ngIf="isNotBlack(post.post_Image);"> 
+                                    <div class="fill">
+                                        <img id="post_Image" src="{{APIURL}}{{post.post_Image}}" alt="Cannot display image">
+                                    </div>  
+                                </div>        
+                                <br>
+                                <td>{{post.text}}</td>
+                                <br>
+                                <div id="row">
+                                    <form [formGroup]="likeForm" (ngSubmit)="setId(post._id); likePost();">
+                                        <input class="upload1 upload2 upload4" type="image" src="../../assets/like.png" width="35" height="27"/>
+                                    </form>
+                                    <p id="like">Αρέσει σε {{post.likes}} χρήστες.</p>
+                                </div>
+                                <form [formGroup]="commentForm" (ngSubmit)="setId(post._id); newComment();">
+                                    <div class="postdiv" style="float:left">
+                                        &nbsp; <input type="text" formControlName="text" placeholder="Γράψτε κάτι.." id="post1"/><input class="upload1 upload3" type="submit" value="Σχολιάστε">
+                                    </div>
+                                </form>
+                                <br>
+                                <br>
+                                <div  *ngFor="let comment of post.ncomments">
+                                    <div id="commentrow">
+                                        {{comment.commentator_name}} says: <p id="comment"> {{comment.text}}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>
             <ng-template #notAvailable>
                 Data hasn't arrived.
             </ng-template>
+            </div>
         </div>
     </body>
 </html>
