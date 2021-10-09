@@ -130,6 +130,7 @@ border-radius: 5px;
     margin: 0 auto;
     font-family: 'Libre Baskerville', serif;
     font-size:16;
+    float: center;
 }
 
 .comment {
@@ -207,16 +208,32 @@ border-radius: 5px;
 }
 
 #post {
-    border-radius: 15px 50px 30px;
+    border-radius: 10px;
     border: hidden; 
-    background: #ffffffdc;
+    background: #ffffffef;
     padding: 23px; 
-    width: 500px;
-    height: 15px; 
+    width: 50%;
+    height: 30px; 
     font-family: 'Libre Baskerville', serif;
     font-size:16;
-
-}
+    float: center;
+    place-self: center;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    box-sizing: border-box;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  }
+  
+  #post:hover {
+    box-shadow: 0 0 5pt 0.5pt #535050;
+  }
+  
+  #post:focus {
+    width: 60%;
+    box-shadow: 0 0 5pt 2pt rgba(255, 255, 255, 0.7);
+    outline-width: 0px;
+  }
 
 #post1 {
   border-radius: 6px 6px 6px;
@@ -249,7 +266,7 @@ border-radius: 5px;
     float: right;
   } */
 
-  @media screen and (max-width: 1500px) {
+  @media screen and (max-width: 1200px) {
     .sidenav {
       visibility: hidden;
       clear: both;
@@ -266,9 +283,10 @@ border-radius: 5px;
     }
     .column.middle{
       width: 100%;
-      position: relative;
+      position:relative;
       left:0;
       right:0;
+      place-self: center;
     }
 
     /* .column.middle, .posts{
