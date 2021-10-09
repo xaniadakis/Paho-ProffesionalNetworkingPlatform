@@ -39,32 +39,30 @@
             <br><br>
                 <!-- <router-outlet></router-outlet> -->
                 <div class="column middle">
-                                   
-                  <div id="footer">
                   <div class="well" style="height:200px; padding:15px;">
-                      <div *ngFor="let message of timemessages">
-                        <ng-template [ngIf]="isMyUsername(message.user_name)">
-                          <div class="container darker">
-                            <span><strong>{{message.user_name}}: </strong> {{message.message}}</span>
-                            <span class="time-right">{{message.time}}</span>
-                          </div>
-                        </ng-template>
-                        <ng-template [ngIf]="notMyUsername(message.user_name)">
-                          <div class="container lighter">
-                            <span><strong>{{message.user_name}}: </strong> {{message.message}}</span>
-                            <span class="time-left">{{message.time}}</span>
-                          </div>
-                        </ng-template>
-                      </div>
-                  </div>
-                  <form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
-                    <input type="text" class="textbar" formControlName="text" placeholder="Στείλτε μήνυμα..." style="height:150px">
-                    <input class="mybutton" type="submit" value="Αποστολή" style="height: 160px;">
-                  </form>
+                    <div *ngFor="let message of timemessages">
+                      <ng-template [ngIf]="isMyUsername(message.user_name)">
+                        <div class="container darker">
+                          <span><strong>{{message.user_name}}: </strong> {{message.message}}</span>
+                          <span class="time-right">{{message.time}}</span>
+                        </div>
+                      </ng-template>
+                      <ng-template [ngIf]="notMyUsername(message.user_name)">
+                        <div class="container lighter">
+                          <span><strong>{{message.user_name}}: </strong> {{message.message}}</span>
+                          <span class="time-left">{{message.time}}</span>
+                        </div>
+                      </ng-template>
+                    </div>
+                </div>             
+                  <div id="footer">
+                    <form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
+                      <input type="text" class="textbar" formControlName="text" placeholder="Στείλτε μήνυμα..." style="height:90px">
+                      <input class="mybutton" type="submit" value="Αποστολή" style="height: 100px;">
+                    </form>
                   </div>
                 </div> 
   
-            <!-- <img src="./sky.jpg" alt="Cannot load image" width="500" height="270"> -->
         </div>
     </body>
 </html>

@@ -101,6 +101,7 @@ h1 {
   border: 1.7px solid #000000;
   color: rgb(0, 0, 0);
   padding: 7px 32px;
+  width:20%;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -279,7 +280,7 @@ margin: 5px;
 /*  */
 
 input[type=text], .textbar, .drop, .textarea {
-  width: 80%;
+  width: 70%;
   float: left;
   /* height: 25px; */
   margin: 8px 0;
@@ -301,7 +302,7 @@ input[type=text]:hover , .textbar:hover, .drop:hover {
 }
 
 input[type=text]:focus, .textbar:focus, .drop:focus {
-  width: 91%;
+  width: 78%;
   box-shadow: 0 0 5pt 2pt rgba(255, 255, 255, 0.7);
   outline-width: 0px;
 }
