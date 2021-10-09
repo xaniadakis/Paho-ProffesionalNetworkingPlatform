@@ -1,2 +1,3 @@
 node_modules/
 /frontend/src/app/common/
+frontend/src/app/common/global-constants.ts
