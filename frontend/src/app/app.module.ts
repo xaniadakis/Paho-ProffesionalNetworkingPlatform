@@ -29,7 +29,7 @@ import { ChatService } from './chat/chat.service';
 import { EmailService } from './email.service'
 import { Title } from '@angular/platform-browser';
 // import { MatSidenavModule } from '@angular/material/sidenav';
-import { MaterialModule } from './loggedin/material.module'
+// import { MaterialModule } from './loggedin/material.module'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 @NgModule({
@@ -52,7 +52,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MaterialModule,
+    // MaterialModule,
     ReactiveFormsModule,
     BrowserAnimationsModule
     // MatSidenavModule

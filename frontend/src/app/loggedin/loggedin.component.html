@@ -35,35 +35,41 @@
                     <!-- <form (submit)="onLogout()" style="display: inline;">
                         <input class="logo" type="image" src="../../assets/login-google-account-computer-icons-user-png-favpng-ZwgqcU6LVRjJucQ9udYpX00qa-removebg-preview.png" width="35" height="35" />
                     </form>  -->
-                    <div class="dropdown">
+                    <div class="cldropdown">
+                        <li class="dropdown dropdown-5">
+                            TranslateX
+                            <ul class="dropdown_menu dropdown_menu-5">
+                                <li class="dropdown_item-1"><a href="app/loggedin/start" >Αρχική Σελίδα</a></li>
+                                <li class="dropdown_item-2"><a href="app/loggedin/network" >Δίκτυο</a></li>
+                                <li class="dropdown_item-3"><a href="app/loggedin/postings">Αγγελίες</a></li>
+                                <li class="dropdown_item-4"><a href="app/loggedin/chat">Συζητήσεις</a></li>
+                                <li class="dropdown_item-5"><a href="app/loggedin/notifications">Ειδοποιήσεις</a></li>
+                                <li class="dropdown_item-6"><a href="app/loggedin/personal-info" >Προσωπικά Στοιχεία</a></li>
+                                <li class="dropdown_item-7"><a href="app/loggedin/settings">Ρυθμίσεις</a></li>
+                                <li class="dropdown_item-8"><a (click)="onLogout();" >Έξοδος</a></li>  
+                            </ul>
+                        </li>
+                    </div>
+                    <!-- <div class="dropdown">
                         <button class="dropbtn" > ☰  Πλοήγηση </button>
                         <div class="dropdown-content" >
-                            <!-- <form method="get" action="app/loggedin/start" style="display: inline;"> -->
                                 <a href="app/loggedin/start" class="dropitem">Αρχική Σελίδα</a>&nbsp;
-                            <!-- </form> -->
-                            <!-- <form method="get" action="app/loggedin/network" style="display: inline;"> -->
+                            
                                 <a href="app/loggedin/network" type="submit"class="dropitem">Δίκτυο</a>&nbsp;
-                            <!-- </form>
-                            <form method="get" action="app/loggedin/postings" style="display: inline;"> -->
+                           
                                 <a href="app/loggedin/postings" class="dropitem">Αγγελίες</a>&nbsp;
-                            <!-- </form>
-                            <form method="get" action="app/loggedin/chat" style="display: inline;"> -->
+                            
                                 <a href="app/loggedin/chat" class="dropitem">Συζητήσεις</a>&nbsp;
-                            <!-- </form>
-                            <form method="get" action="app/loggedin/notifications" style="display: inline;"> -->
+                            
                                 <a href="app/loggedin/notifications" class="dropitem">Ειδοποιήσεις</a>&nbsp;
-                            <!-- </form>
-                            <form method="get" action="app/loggedin/personal-info" style="display: inline;"> -->
+                            
                                 <a href="app/loggedin/personal-info" class="dropitem">Προσωπικά Στοιχεία</a>&nbsp;
-                            <!-- </form>
-                            <form method="get" action="app/loggedin/settings" style="display: inline;"> -->
+                            
                                 <a href="app/loggedin/settings" class="dropitem">Ρυθμίσεις</a>
-                            <!-- </form>
-                            <form [formGroup]="Form" (ngSubmit)="onLogout();" style="display: inline;"> -->
+            
                                 <a (click)="onLogout();" class="dropitem">Έξοδος</a>
-                            <!-- </form> -->
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- <div id="header-middle">                   -->
                     
@@ -72,7 +78,7 @@
                     </form> -->
                 <!-- </div> -->
             </div> 
-            <router-outlet></router-outlet>
+                <router-outlet></router-outlet>
             <main>
                 <!-- <mat-drawer-container class="example-container">
                     <mat-drawer #drawer [mode]="mode.value">
