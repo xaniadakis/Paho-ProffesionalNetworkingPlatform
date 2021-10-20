@@ -2,7 +2,8 @@
 
 The aim of this work was to develop a professional networking application. 
 
-The application was developed in cooperation with [Jim Papadimas](https://github.com/aricatosenpai) as Backend Engineer and myself as Frontend Engineer.
+The application was developed as a collaborative effort of myself as Frontend Engineer and
+[Jim Papadimas](https://github.com/aricatosenpai) as Backend Engineer.
 
 Professionals who have signed up in the apllication can manage information about their education and professional
 experience, make requests to connect with other professionals and accept or reject
